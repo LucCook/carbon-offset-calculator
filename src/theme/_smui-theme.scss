@@ -2,6 +2,12 @@
 
 @use '@material/theme/color-palette';
 
+$primary: #ff3e00;
+  $secondary: #676778;
+  $surface: #fff;
+  $background: #fff;
+  $error: color-palette.$red-900;
+
 // Svelte Colors!
 @use '@material/theme/index' as theme with (
   $primary: #ff3e00,
@@ -11,10 +17,20 @@
   $error: color-palette.$red-900
 );
 
+:root {
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --surface: #{$surface};
+  --background: #{$background};
+  --error: #{$error};
+}
+
+
 html,
 body {
   background-color: theme.$surface;
   color: theme.$on-surface;
+  margin: 0
 }
 
 a {
