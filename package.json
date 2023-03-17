@@ -14,7 +14,11 @@
   },
   "devDependencies": {
     "@smui-extra/autocomplete": "^7.0.0-beta.0",
+    "@smui/button": "^7.0.0-beta.0",
+    "@smui/chips": "^7.0.0-beta.0",
+    "@smui/dialog": "^7.0.0-beta.0",
     "@smui/icon-button": "^7.0.0-beta.0",
+    "@smui/list": "^7.0.0-beta.0",
     "@smui/switch": "^7.0.0-beta.0",
     "@smui/tab": "^7.0.0-beta.0",
     "@smui/tab-bar": "^7.0.0-beta.0",
