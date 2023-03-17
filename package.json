@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "vite dev",
+    "dev": "vite dev --host",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
@@ -13,6 +13,8 @@
     "smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/theme/dark"
   },
   "devDependencies": {
+    "@smui-extra/autocomplete": "^7.0.0-beta.0",
+    "@smui/icon-button": "^7.0.0-beta.0",
     "@smui/switch": "^7.0.0-beta.0",
     "@smui/tab": "^7.0.0-beta.0",
     "@smui/tab-bar": "^7.0.0-beta.0",

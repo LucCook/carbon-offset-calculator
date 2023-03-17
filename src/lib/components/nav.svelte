@@ -23,11 +23,21 @@
   
 </script>
 
-<div>
-    <TabBar {tabs} let:tab bind:active>
-      <Tab {tab} href={tab.href}>
-        <Icon class="material-icons">{tab.icon}</Icon>
-        <Label>{tab.label}</Label>
-      </Tab>
-    </TabBar>
-  </div>
+<div class="nav">
+
+  <TabBar {tabs} let:tab bind:active>
+    <Tab {tab} href={tab.href}>
+      <Icon class="material-icons">{tab.icon}</Icon>
+      <Label>{tab.label}</Label>
+    </Tab>
+  </TabBar>
+</div>
+
+
+<style>
+  .nav {
+    margin-inline: 2px;
+    width: 100%;
+    overflow: hidden;
+  }
+</style>
