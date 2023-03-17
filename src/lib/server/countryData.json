@@ -1,0 +1,1661 @@
+[
+  {
+    "country": "Afghanistan",
+    "2020_co2": 0.3,
+    "2021_co2": 0.3,
+    "abs_change": 0,
+    "perc_change": -1
+  },
+  {
+    "country": "Africa",
+    "2020_co2": 1.02,
+    "2021_co2": 1.04,
+    "abs_change": 0.02,
+    "perc_change": 2
+  },
+  {
+    "country": "Albania",
+    "2020_co2": 1.65,
+    "2021_co2": 1.62,
+    "abs_change": -0.03,
+    "perc_change": -2
+  },
+  {
+    "country": "Algeria",
+    "2020_co2": 3.97,
+    "2021_co2": 3.99,
+    "abs_change": 0.02,
+    "perc_change": 1
+  },
+  {
+    "country": "Andorra",
+    "2020_co2": 5.78,
+    "2021_co2": 5.73,
+    "abs_change": -0.05,
+    "perc_change": -1
+  },
+  {
+    "country": "Angola",
+    "2020_co2": 0.61,
+    "2021_co2": 0.62,
+    "abs_change": 0.01,
+    "perc_change": 2
+  },
+  {
+    "country": "Anguilla",
+    "2020_co2": 8.42,
+    "2021_co2": 9.17,
+    "abs_change": 0.76,
+    "perc_change": 9
+  },
+  {
+    "country": "Antigua and Barbuda",
+    "2020_co2": 4.59,
+    "2021_co2": 5.03,
+    "abs_change": 0.44,
+    "perc_change": 10
+  },
+  {
+    "country": "Argentina",
+    "2020_co2": 3.76,
+    "2021_co2": 4.12,
+    "abs_change": 0.36,
+    "perc_change": 10
+  },
+  {
+    "country": "Armenia",
+    "2020_co2": 2.29,
+    "2021_co2": 2.44,
+    "abs_change": 0.15,
+    "perc_change": 6
+  },
+  {
+    "country": "Aruba",
+    "2020_co2": 7.31,
+    "2021_co2": 8.05,
+    "abs_change": 0.75,
+    "perc_change": 10
+  },
+  {
+    "country": "Asia",
+    "2020_co2": 4.44,
+    "2021_co2": 4.62,
+    "abs_change": 0.18,
+    "perc_change": 4
+  },
+  {
+    "country": "Asia (excl. China and India)",
+    "2020_co2": 3.96,
+    "2021_co2": 4.04,
+    "abs_change": 0.08,
+    "perc_change": 2
+  },
+  {
+    "country": "Australia",
+    "2020_co2": 15.58,
+    "2021_co2": 15.09,
+    "abs_change": -0.49,
+    "perc_change": -3
+  },
+  {
+    "country": "Austria",
+    "2020_co2": 6.96,
+    "2021_co2": 7.24,
+    "abs_change": 0.28,
+    "perc_change": 4
+  },
+  {
+    "country": "Azerbaijan",
+    "2020_co2": 3.65,
+    "2021_co2": 3.73,
+    "abs_change": 0.09,
+    "perc_change": 2
+  },
+  {
+    "country": "Bahamas",
+    "2020_co2": 5.33,
+    "2021_co2": 5.85,
+    "abs_change": 0.52,
+    "perc_change": 10
+  },
+  {
+    "country": "Bahrain",
+    "2020_co2": 25.45,
+    "2021_co2": 26.66,
+    "abs_change": 1.21,
+    "perc_change": 5
+  },
+  {
+    "country": "Bangladesh",
+    "2020_co2": 0.54,
+    "2021_co2": 0.55,
+    "abs_change": 0.01,
+    "perc_change": 1
+  },
+  {
+    "country": "Barbados",
+    "2020_co2": 3.64,
+    "2021_co2": 4,
+    "abs_change": 0.36,
+    "perc_change": 10
+  },
+  {
+    "country": "Belarus",
+    "2020_co2": 6.08,
+    "2021_co2": 6.22,
+    "abs_change": 0.14,
+    "perc_change": 2
+  },
+  {
+    "country": "Belgium",
+    "2020_co2": 7.82,
+    "2021_co2": 8.24,
+    "abs_change": 0.43,
+    "perc_change": 5
+  },
+  {
+    "country": "Belize",
+    "2020_co2": 1.56,
+    "2021_co2": 1.72,
+    "abs_change": 0.17,
+    "perc_change": 11
+  },
+  {
+    "country": "Benin",
+    "2020_co2": 0.57,
+    "2021_co2": 0.6,
+    "abs_change": 0.02,
+    "perc_change": 4
+  },
+  {
+    "country": "Bermuda",
+    "2020_co2": 7.77,
+    "2021_co2": 8.53,
+    "abs_change": 0.77,
+    "perc_change": 10
+  },
+  {
+    "country": "Bhutan",
+    "2020_co2": 1.94,
+    "2021_co2": 1.96,
+    "abs_change": 0.02,
+    "perc_change": 1
+  },
+  {
+    "country": "Bolivia",
+    "2020_co2": 1.77,
+    "2021_co2": 1.93,
+    "abs_change": 0.17,
+    "perc_change": 9
+  },
+  {
+    "country": "Bonaire Sint Eustatius and Saba",
+    "2020_co2": 3.59,
+    "2021_co2": 3.87,
+    "abs_change": 0.28,
+    "perc_change": 8
+  },
+  {
+    "country": "Bosnia and Herzegovina",
+    "2020_co2": 6.31,
+    "2021_co2": 4.15,
+    "abs_change": -2.16,
+    "perc_change": -34
+  },
+  {
+    "country": "Botswana",
+    "2020_co2": 2.46,
+    "2021_co2": 2.51,
+    "abs_change": 0.05,
+    "perc_change": 2
+  },
+  {
+    "country": "Brazil",
+    "2020_co2": 2.07,
+    "2021_co2": 2.28,
+    "abs_change": 0.21,
+    "perc_change": 10
+  },
+  {
+    "country": "British Virgin Islands",
+    "2020_co2": 4.65,
+    "2021_co2": 5.09,
+    "abs_change": 0.44,
+    "perc_change": 9
+  },
+  {
+    "country": "Brunei",
+    "2020_co2": 23.89,
+    "2021_co2": 23.53,
+    "abs_change": -0.36,
+    "perc_change": -2
+  },
+  {
+    "country": "Bulgaria",
+    "2020_co2": 5.3,
+    "2021_co2": 6.18,
+    "abs_change": 0.88,
+    "perc_change": 17
+  },
+  {
+    "country": "Burkina Faso",
+    "2020_co2": 0.25,
+    "2021_co2": 0.26,
+    "abs_change": 0.01,
+    "perc_change": 3
+  },
+  {
+    "country": "Burundi",
+    "2020_co2": 0.05,
+    "2021_co2": 0.06,
+    "abs_change": 0,
+    "perc_change": 3
+  },
+  {
+    "country": "Cambodia",
+    "2020_co2": 1.14,
+    "2021_co2": 1.15,
+    "abs_change": 0.01,
+    "perc_change": 1
+  },
+  {
+    "country": "Cameroon",
+    "2020_co2": 0.34,
+    "2021_co2": 0.34,
+    "abs_change": 0,
+    "perc_change": 1
+  },
+  {
+    "country": "Canada",
+    "2020_co2": 14.12,
+    "2021_co2": 14.3,
+    "abs_change": 0.18,
+    "perc_change": 1
+  },
+  {
+    "country": "Cape Verde",
+    "2020_co2": 1.07,
+    "2021_co2": 1.14,
+    "abs_change": 0.06,
+    "perc_change": 6
+  },
+  {
+    "country": "Central African Republic",
+    "2020_co2": 0.04,
+    "2021_co2": 0.04,
+    "abs_change": 0,
+    "perc_change": 4
+  },
+  {
+    "country": "Chad",
+    "2020_co2": 0.11,
+    "2021_co2": 0.11,
+    "abs_change": 0,
+    "perc_change": 4
+  },
+  {
+    "country": "Chile",
+    "2020_co2": 4.34,
+    "2021_co2": 4.38,
+    "abs_change": 0.04,
+    "perc_change": 1
+  },
+  {
+    "country": "China",
+    "2020_co2": 7.69,
+    "2021_co2": 8.05,
+    "abs_change": 0.36,
+    "perc_change": 5
+  },
+  {
+    "country": "Colombia",
+    "2020_co2": 1.68,
+    "2021_co2": 1.78,
+    "abs_change": 0.1,
+    "perc_change": 6
+  },
+  {
+    "country": "Comoros",
+    "2020_co2": 0.35,
+    "2021_co2": 0.36,
+    "abs_change": 0.01,
+    "perc_change": 4
+  },
+  {
+    "country": "Congo",
+    "2020_co2": 1.32,
+    "2021_co2": 1.28,
+    "abs_change": -0.04,
+    "perc_change": -3
+  },
+  {
+    "country": "Cook Islands",
+    "2020_co2": 5.22,
+    "2021_co2": 5.37,
+    "abs_change": 0.15,
+    "perc_change": 3
+  },
+  {
+    "country": "Costa Rica",
+    "2020_co2": 1.38,
+    "2021_co2": 1.52,
+    "abs_change": 0.13,
+    "perc_change": 10
+  },
+  {
+    "country": "Cote d'Ivoire",
+    "2020_co2": 0.41,
+    "2021_co2": 0.43,
+    "abs_change": 0.02,
+    "perc_change": 4
+  },
+  {
+    "country": "Croatia",
+    "2020_co2": 4.12,
+    "2021_co2": 4.36,
+    "abs_change": 0.24,
+    "perc_change": 6
+  },
+  {
+    "country": "Cuba",
+    "2020_co2": 1.75,
+    "2021_co2": 1.96,
+    "abs_change": 0.21,
+    "perc_change": 12
+  },
+  {
+    "country": "Curacao",
+    "2020_co2": 8.84,
+    "2021_co2": 9.69,
+    "abs_change": 0.84,
+    "perc_change": 10
+  },
+  {
+    "country": "Cyprus",
+    "2020_co2": 5.87,
+    "2021_co2": 6.11,
+    "abs_change": 0.23,
+    "perc_change": 4
+  },
+  {
+    "country": "Czechia",
+    "2020_co2": 8.72,
+    "2021_co2": 9.24,
+    "abs_change": 0.52,
+    "perc_change": 6
+  },
+  {
+    "country": "Democratic Republic of Congo",
+    "2020_co2": 0.03,
+    "2021_co2": 0.03,
+    "abs_change": 0,
+    "perc_change": 2
+  },
+  {
+    "country": "Denmark",
+    "2020_co2": 4.85,
+    "2021_co2": 5.05,
+    "abs_change": 0.2,
+    "perc_change": 4
+  },
+  {
+    "country": "Djibouti",
+    "2020_co2": 0.33,
+    "2021_co2": 0.34,
+    "abs_change": 0.01,
+    "perc_change": 3
+  },
+  {
+    "country": "Dominica",
+    "2020_co2": 2,
+    "2021_co2": 2.19,
+    "abs_change": 0.19,
+    "perc_change": 10
+  },
+  {
+    "country": "Dominican Republic",
+    "2020_co2": 2.4,
+    "2021_co2": 2.6,
+    "abs_change": 0.2,
+    "perc_change": 8
+  },
+  {
+    "country": "Ecuador",
+    "2020_co2": 1.96,
+    "2021_co2": 2.32,
+    "abs_change": 0.36,
+    "perc_change": 19
+  },
+  {
+    "country": "Egypt",
+    "2020_co2": 2.19,
+    "2021_co2": 2.28,
+    "abs_change": 0.09,
+    "perc_change": 4
+  },
+  {
+    "country": "El Salvador",
+    "2020_co2": 1.03,
+    "2021_co2": 1.14,
+    "abs_change": 0.11,
+    "perc_change": 10
+  },
+  {
+    "country": "Equatorial Guinea",
+    "2020_co2": 3.13,
+    "2021_co2": 3.2,
+    "abs_change": 0.07,
+    "perc_change": 2
+  },
+  {
+    "country": "Eritrea",
+    "2020_co2": 0.22,
+    "2021_co2": 0.23,
+    "abs_change": 0.01,
+    "perc_change": 3
+  },
+  {
+    "country": "Estonia",
+    "2020_co2": 7.03,
+    "2021_co2": 7.86,
+    "abs_change": 0.84,
+    "perc_change": 12
+  },
+  {
+    "country": "Eswatini",
+    "2020_co2": 0.9,
+    "2021_co2": 0.91,
+    "abs_change": 0.01,
+    "perc_change": 2
+  },
+  {
+    "country": "Ethiopia",
+    "2020_co2": 0.15,
+    "2021_co2": 0.15,
+    "abs_change": 0,
+    "perc_change": 2
+  },
+  {
+    "country": "Europe",
+    "2020_co2": 6.71,
+    "2021_co2": 7.11,
+    "abs_change": 0.41,
+    "perc_change": 6
+  },
+  {
+    "country": "Europe (excl. EU-27)",
+    "2020_co2": 7.92,
+    "2021_co2": 8.35,
+    "abs_change": 0.43,
+    "perc_change": 5
+  },
+  {
+    "country": "Europe (excl. EU-28)",
+    "2020_co2": 8.79,
+    "2021_co2": 9.27,
+    "abs_change": 0.48,
+    "perc_change": 5
+  },
+  {
+    "country": "European Union (27)",
+    "2020_co2": 5.89,
+    "2021_co2": 6.28,
+    "abs_change": 0.39,
+    "perc_change": 7
+  },
+  {
+    "country": "European Union (28)",
+    "2020_co2": 5.75,
+    "2021_co2": 6.13,
+    "abs_change": 0.37,
+    "perc_change": 7
+  },
+  {
+    "country": "Faeroe Islands",
+    "2020_co2": 13.2,
+    "2021_co2": 13.2,
+    "abs_change": 0,
+    "perc_change": 0
+  },
+  {
+    "country": "Fiji",
+    "2020_co2": 1.55,
+    "2021_co2": 1.59,
+    "abs_change": 0.04,
+    "perc_change": 2
+  },
+  {
+    "country": "Finland",
+    "2020_co2": 6.8,
+    "2021_co2": 6.79,
+    "abs_change": -0.01,
+    "perc_change": 0
+  },
+  {
+    "country": "France",
+    "2020_co2": 4.34,
+    "2021_co2": 4.74,
+    "abs_change": 0.4,
+    "perc_change": 9
+  },
+  {
+    "country": "French Guiana",
+    "2020_co2": 2.24,
+    "2021_co2": 2.19,
+    "abs_change": -0.05,
+    "perc_change": -2
+  },
+  {
+    "country": "French Polynesia",
+    "2020_co2": 3.06,
+    "2021_co2": 3.12,
+    "abs_change": 0.06,
+    "perc_change": 2
+  },
+  {
+    "country": "Gabon",
+    "2020_co2": 2.48,
+    "2021_co2": 2.44,
+    "abs_change": -0.04,
+    "perc_change": -2
+  },
+  {
+    "country": "Gambia",
+    "2020_co2": 0.24,
+    "2021_co2": 0.25,
+    "abs_change": 0.01,
+    "perc_change": 4
+  },
+  {
+    "country": "Georgia",
+    "2020_co2": 2.84,
+    "2021_co2": 2.93,
+    "abs_change": 0.09,
+    "perc_change": 3
+  },
+  {
+    "country": "Germany",
+    "2020_co2": 7.67,
+    "2021_co2": 8.09,
+    "abs_change": 0.42,
+    "perc_change": 5
+  },
+  {
+    "country": "Ghana",
+    "2020_co2": 0.61,
+    "2021_co2": 0.65,
+    "abs_change": 0.04,
+    "perc_change": 6
+  },
+  {
+    "country": "Greece",
+    "2020_co2": 5.29,
+    "2021_co2": 5.39,
+    "abs_change": 0.1,
+    "perc_change": 2
+  },
+  {
+    "country": "Greenland",
+    "2020_co2": 8.93,
+    "2021_co2": 9.08,
+    "abs_change": 0.15,
+    "perc_change": 2
+  },
+  {
+    "country": "Grenada",
+    "2020_co2": 2.31,
+    "2021_co2": 2.56,
+    "abs_change": 0.25,
+    "perc_change": 11
+  },
+  {
+    "country": "Guadeloupe",
+    "2020_co2": 5.79,
+    "2021_co2": 5.78,
+    "abs_change": -0.01,
+    "perc_change": 0
+  },
+  {
+    "country": "Guatemala",
+    "2020_co2": 1.01,
+    "2021_co2": 1.15,
+    "abs_change": 0.14,
+    "perc_change": 14
+  },
+  {
+    "country": "Guinea",
+    "2020_co2": 0.34,
+    "2021_co2": 0.36,
+    "abs_change": 0.01,
+    "perc_change": 4
+  },
+  {
+    "country": "Guinea-Bissau",
+    "2020_co2": 0.16,
+    "2021_co2": 0.17,
+    "abs_change": 0.01,
+    "perc_change": 4
+  },
+  {
+    "country": "Guyana",
+    "2020_co2": 4,
+    "2021_co2": 3.84,
+    "abs_change": -0.16,
+    "perc_change": -4
+  },
+  {
+    "country": "Haiti",
+    "2020_co2": 0.23,
+    "2021_co2": 0.25,
+    "abs_change": 0.02,
+    "perc_change": 9
+  },
+  {
+    "country": "High-income countries",
+    "2020_co2": 9.81,
+    "2021_co2": 10.27,
+    "abs_change": 0.46,
+    "perc_change": 5
+  },
+  {
+    "country": "Honduras",
+    "2020_co2": 0.97,
+    "2021_co2": 1.06,
+    "abs_change": 0.09,
+    "perc_change": 9
+  },
+  {
+    "country": "Hong Kong",
+    "2020_co2": 4.2,
+    "2021_co2": 4.22,
+    "abs_change": 0.02,
+    "perc_change": 1
+  },
+  {
+    "country": "Hungary",
+    "2020_co2": 4.85,
+    "2021_co2": 4.99,
+    "abs_change": 0.14,
+    "perc_change": 3
+  },
+  {
+    "country": "Iceland",
+    "2020_co2": 9.08,
+    "2021_co2": 9.11,
+    "abs_change": 0.03,
+    "perc_change": 0
+  },
+  {
+    "country": "India",
+    "2020_co2": 1.75,
+    "2021_co2": 1.93,
+    "abs_change": 0.17,
+    "perc_change": 10
+  },
+  {
+    "country": "Indonesia",
+    "2020_co2": 2.24,
+    "2021_co2": 2.26,
+    "abs_change": 0.02,
+    "perc_change": 1
+  },
+  {
+    "country": "Iran",
+    "2020_co2": 8.36,
+    "2021_co2": 8.52,
+    "abs_change": 0.15,
+    "perc_change": 2
+  },
+  {
+    "country": "Iraq",
+    "2020_co2": 4.08,
+    "2021_co2": 4.26,
+    "abs_change": 0.19,
+    "perc_change": 5
+  },
+  {
+    "country": "Ireland",
+    "2020_co2": 7.11,
+    "2021_co2": 7.53,
+    "abs_change": 0.42,
+    "perc_change": 6
+  },
+  {
+    "country": "Israel",
+    "2020_co2": 6.28,
+    "2021_co2": 6.13,
+    "abs_change": -0.15,
+    "perc_change": -2
+  },
+  {
+    "country": "Italy",
+    "2020_co2": 5.08,
+    "2021_co2": 5.55,
+    "abs_change": 0.47,
+    "perc_change": 9
+  },
+  {
+    "country": "Jamaica",
+    "2020_co2": 2.46,
+    "2021_co2": 2.72,
+    "abs_change": 0.26,
+    "perc_change": 10
+  },
+  {
+    "country": "Japan",
+    "2020_co2": 8.32,
+    "2021_co2": 8.57,
+    "abs_change": 0.24,
+    "perc_change": 3
+  },
+  {
+    "country": "Jordan",
+    "2020_co2": 2.28,
+    "2021_co2": 2.3,
+    "abs_change": 0.01,
+    "perc_change": 1
+  },
+  {
+    "country": "Kazakhstan",
+    "2020_co2": 14.67,
+    "2021_co2": 14.41,
+    "abs_change": -0.26,
+    "perc_change": -2
+  },
+  {
+    "country": "Kenya",
+    "2020_co2": 0.35,
+    "2021_co2": 0.37,
+    "abs_change": 0.02,
+    "perc_change": 7
+  },
+  {
+    "country": "Kiribati",
+    "2020_co2": 0.55,
+    "2021_co2": 0.56,
+    "abs_change": 0,
+    "perc_change": 1
+  },
+  {
+    "country": "Kosovo",
+    "2020_co2": 5.1,
+    "2021_co2": 3.4,
+    "abs_change": -1.7,
+    "perc_change": -33
+  },
+  {
+    "country": "Kuwait",
+    "2020_co2": 22.88,
+    "2021_co2": 24.97,
+    "abs_change": 2.09,
+    "perc_change": 9
+  },
+  {
+    "country": "Kyrgyzstan",
+    "2020_co2": 1.32,
+    "2021_co2": 1.43,
+    "abs_change": 0.1,
+    "perc_change": 8
+  },
+  {
+    "country": "Laos",
+    "2020_co2": 2.8,
+    "2021_co2": 2.8,
+    "abs_change": 0,
+    "perc_change": 0
+  },
+  {
+    "country": "Latvia",
+    "2020_co2": 3.69,
+    "2021_co2": 3.88,
+    "abs_change": 0.19,
+    "perc_change": 5
+  },
+  {
+    "country": "Lebanon",
+    "2020_co2": 4.32,
+    "2021_co2": 4.46,
+    "abs_change": 0.14,
+    "perc_change": 3
+  },
+  {
+    "country": "Lesotho",
+    "2020_co2": 0.97,
+    "2021_co2": 1,
+    "abs_change": 0.03,
+    "perc_change": 3
+  },
+  {
+    "country": "Liberia",
+    "2020_co2": 0.22,
+    "2021_co2": 0.23,
+    "abs_change": 0.01,
+    "perc_change": 4
+  },
+  {
+    "country": "Libya",
+    "2020_co2": 8.8,
+    "2021_co2": 11.06,
+    "abs_change": 2.26,
+    "perc_change": 26
+  },
+  {
+    "country": "Liechtenstein",
+    "2020_co2": 3.66,
+    "2021_co2": 3.86,
+    "abs_change": 0.2,
+    "perc_change": 6
+  },
+  {
+    "country": "Lithuania",
+    "2020_co2": 4.84,
+    "2021_co2": 4.98,
+    "abs_change": 0.14,
+    "perc_change": 3
+  },
+  {
+    "country": "Low-income countries",
+    "2020_co2": 0.28,
+    "2021_co2": 0.28,
+    "abs_change": 0,
+    "perc_change": 1
+  },
+  {
+    "country": "Lower-middle-income countries",
+    "2020_co2": 1.75,
+    "2021_co2": 1.83,
+    "abs_change": 0.09,
+    "perc_change": 5
+  },
+  {
+    "country": "Luxembourg",
+    "2020_co2": 12.84,
+    "2021_co2": 13.07,
+    "abs_change": 0.22,
+    "perc_change": 2
+  },
+  {
+    "country": "Macao",
+    "2020_co2": 1.88,
+    "2021_co2": 1.87,
+    "abs_change": -0.01,
+    "perc_change": 0
+  },
+  {
+    "country": "Madagascar",
+    "2020_co2": 0.14,
+    "2021_co2": 0.15,
+    "abs_change": 0.01,
+    "perc_change": 4
+  },
+  {
+    "country": "Malawi",
+    "2020_co2": 0.08,
+    "2021_co2": 0.08,
+    "abs_change": 0,
+    "perc_change": 3
+  },
+  {
+    "country": "Malaysia",
+    "2020_co2": 7.82,
+    "2021_co2": 7.63,
+    "abs_change": -0.19,
+    "perc_change": -2
+  },
+  {
+    "country": "Maldives",
+    "2020_co2": 4.01,
+    "2021_co2": 4.06,
+    "abs_change": 0.06,
+    "perc_change": 1
+  },
+  {
+    "country": "Mali",
+    "2020_co2": 0.19,
+    "2021_co2": 0.19,
+    "abs_change": 0.01,
+    "perc_change": 3
+  },
+  {
+    "country": "Malta",
+    "2020_co2": 3.1,
+    "2021_co2": 3.27,
+    "abs_change": 0.17,
+    "perc_change": 5
+  },
+  {
+    "country": "Marshall Islands",
+    "2020_co2": 3.56,
+    "2021_co2": 3.78,
+    "abs_change": 0.22,
+    "perc_change": 6
+  },
+  {
+    "country": "Martinique",
+    "2020_co2": 5.67,
+    "2021_co2": 5.69,
+    "abs_change": 0.02,
+    "perc_change": 0
+  },
+  {
+    "country": "Mauritania",
+    "2020_co2": 0.86,
+    "2021_co2": 0.89,
+    "abs_change": 0.04,
+    "perc_change": 4
+  },
+  {
+    "country": "Mauritius",
+    "2020_co2": 3.24,
+    "2021_co2": 3.44,
+    "abs_change": 0.2,
+    "perc_change": 6
+  },
+  {
+    "country": "Mayotte",
+    "2020_co2": 0.89,
+    "2021_co2": 0.86,
+    "abs_change": -0.03,
+    "perc_change": -3
+  },
+  {
+    "country": "Mexico",
+    "2020_co2": 3.11,
+    "2021_co2": 3.21,
+    "abs_change": 0.1,
+    "perc_change": 3
+  },
+  {
+    "country": "Micronesia (country)",
+    "2020_co2": 1.38,
+    "2021_co2": 1.4,
+    "abs_change": 0.03,
+    "perc_change": 2
+  },
+  {
+    "country": "Moldova",
+    "2020_co2": 1.7,
+    "2021_co2": 1.83,
+    "abs_change": 0.13,
+    "perc_change": 8
+  },
+  {
+    "country": "Mongolia",
+    "2020_co2": 15.06,
+    "2021_co2": 15.03,
+    "abs_change": -0.03,
+    "perc_change": 0
+  },
+  {
+    "country": "Montenegro",
+    "2020_co2": 3.9,
+    "2021_co2": 2.79,
+    "abs_change": -1.11,
+    "perc_change": -28
+  },
+  {
+    "country": "Montserrat",
+    "2020_co2": 4.15,
+    "2021_co2": 4.66,
+    "abs_change": 0.51,
+    "perc_change": 12
+  },
+  {
+    "country": "Morocco",
+    "2020_co2": 1.76,
+    "2021_co2": 1.9,
+    "abs_change": 0.14,
+    "perc_change": 8
+  },
+  {
+    "country": "Mozambique",
+    "2020_co2": 0.21,
+    "2021_co2": 0.22,
+    "abs_change": 0.01,
+    "perc_change": 4
+  },
+  {
+    "country": "Myanmar",
+    "2020_co2": 0.68,
+    "2021_co2": 0.67,
+    "abs_change": 0,
+    "perc_change": 0
+  },
+  {
+    "country": "Namibia",
+    "2020_co2": 1.58,
+    "2021_co2": 1.59,
+    "abs_change": 0,
+    "perc_change": 0
+  },
+  {
+    "country": "Nauru",
+    "2020_co2": 4.7,
+    "2021_co2": 4.76,
+    "abs_change": 0.06,
+    "perc_change": 1
+  },
+  {
+    "country": "Nepal",
+    "2020_co2": 0.48,
+    "2021_co2": 0.47,
+    "abs_change": 0,
+    "perc_change": -1
+  },
+  {
+    "country": "Netherlands",
+    "2020_co2": 7.91,
+    "2021_co2": 8.06,
+    "abs_change": 0.15,
+    "perc_change": 2
+  },
+  {
+    "country": "New Caledonia",
+    "2020_co2": 18.81,
+    "2021_co2": 19.1,
+    "abs_change": 0.29,
+    "perc_change": 2
+  },
+  {
+    "country": "New Zealand",
+    "2020_co2": 6.81,
+    "2021_co2": 6.59,
+    "abs_change": -0.22,
+    "perc_change": -3
+  },
+  {
+    "country": "Nicaragua",
+    "2020_co2": 0.67,
+    "2021_co2": 0.74,
+    "abs_change": 0.06,
+    "perc_change": 9
+  },
+  {
+    "country": "Niger",
+    "2020_co2": 0.1,
+    "2021_co2": 0.11,
+    "abs_change": 0,
+    "perc_change": 4
+  },
+  {
+    "country": "Nigeria",
+    "2020_co2": 0.62,
+    "2021_co2": 0.64,
+    "abs_change": 0.02,
+    "perc_change": 3
+  },
+  {
+    "country": "Niue",
+    "2020_co2": 5.91,
+    "2021_co2": 6.09,
+    "abs_change": 0.18,
+    "perc_change": 3
+  },
+  {
+    "country": "North America",
+    "2020_co2": 9.77,
+    "2021_co2": 10.28,
+    "abs_change": 0.51,
+    "perc_change": 5
+  },
+  {
+    "country": "North America (excl. USA)",
+    "2020_co2": 4.22,
+    "2021_co2": 4.35,
+    "abs_change": 0.13,
+    "perc_change": 3
+  },
+  {
+    "country": "North Korea",
+    "2020_co2": 2.14,
+    "2021_co2": 2.17,
+    "abs_change": 0.03,
+    "perc_change": 1
+  },
+  {
+    "country": "North Macedonia",
+    "2020_co2": 3.15,
+    "2021_co2": 3.26,
+    "abs_change": 0.11,
+    "perc_change": 3
+  },
+  {
+    "country": "Norway",
+    "2020_co2": 7.66,
+    "2021_co2": 7.57,
+    "abs_change": -0.08,
+    "perc_change": -1
+  },
+  {
+    "country": "Oceania",
+    "2020_co2": 10.35,
+    "2021_co2": 10.02,
+    "abs_change": -0.33,
+    "perc_change": -3
+  },
+  {
+    "country": "Oman",
+    "2020_co2": 15.96,
+    "2021_co2": 17.92,
+    "abs_change": 1.96,
+    "perc_change": 12
+  },
+  {
+    "country": "Pakistan",
+    "2020_co2": 0.93,
+    "2021_co2": 0.99,
+    "abs_change": 0.07,
+    "perc_change": 7
+  },
+  {
+    "country": "Palau",
+    "2020_co2": 12.89,
+    "2021_co2": 13.21,
+    "abs_change": 0.32,
+    "perc_change": 2
+  },
+  {
+    "country": "Palestine",
+    "2020_co2": 0.6,
+    "2021_co2": 0.6,
+    "abs_change": 0,
+    "perc_change": 0
+  },
+  {
+    "country": "Panama",
+    "2020_co2": 2.71,
+    "2021_co2": 2.99,
+    "abs_change": 0.28,
+    "perc_change": 10
+  },
+  {
+    "country": "Papua New Guinea",
+    "2020_co2": 0.85,
+    "2021_co2": 0.86,
+    "abs_change": 0,
+    "perc_change": 0
+  },
+  {
+    "country": "Paraguay",
+    "2020_co2": 1.21,
+    "2021_co2": 1.28,
+    "abs_change": 0.07,
+    "perc_change": 5
+  },
+  {
+    "country": "Peru",
+    "2020_co2": 1.43,
+    "2021_co2": 1.67,
+    "abs_change": 0.24,
+    "perc_change": 17
+  },
+  {
+    "country": "Philippines",
+    "2020_co2": 1.21,
+    "2021_co2": 1.27,
+    "abs_change": 0.06,
+    "perc_change": 5
+  },
+  {
+    "country": "Poland",
+    "2020_co2": 7.9,
+    "2021_co2": 8.58,
+    "abs_change": 0.68,
+    "perc_change": 9
+  },
+  {
+    "country": "Portugal",
+    "2020_co2": 4.06,
+    "2021_co2": 3.96,
+    "abs_change": -0.09,
+    "perc_change": -2
+  },
+  {
+    "country": "Puerto Rico",
+    "2020_co2": null,
+    "2021_co2": null,
+    "abs_change": null,
+    "perc_change": null
+  },
+  {
+    "country": "Qatar",
+    "2020_co2": 33.64,
+    "2021_co2": 35.59,
+    "abs_change": 1.95,
+    "perc_change": 6
+  },
+  {
+    "country": "Reunion",
+    "2020_co2": 4.28,
+    "2021_co2": 4.25,
+    "abs_change": -0.04,
+    "perc_change": -1
+  },
+  {
+    "country": "Romania",
+    "2020_co2": 3.81,
+    "2021_co2": 4.1,
+    "abs_change": 0.29,
+    "perc_change": 8
+  },
+  {
+    "country": "Russia",
+    "2020_co2": 11.15,
+    "2021_co2": 12.1,
+    "abs_change": 0.94,
+    "perc_change": 8
+  },
+  {
+    "country": "Rwanda",
+    "2020_co2": 0.13,
+    "2021_co2": 0.13,
+    "abs_change": 0,
+    "perc_change": 3
+  },
+  {
+    "country": "Saint Helena",
+    "2020_co2": 2.3,
+    "2021_co2": 2.54,
+    "abs_change": 0.24,
+    "perc_change": 11
+  },
+  {
+    "country": "Saint Kitts and Nevis",
+    "2020_co2": 4.53,
+    "2021_co2": 4.99,
+    "abs_change": 0.46,
+    "perc_change": 10
+  },
+  {
+    "country": "Saint Lucia",
+    "2020_co2": 2.46,
+    "2021_co2": 2.7,
+    "abs_change": 0.24,
+    "perc_change": 10
+  },
+  {
+    "country": "Saint Pierre and Miquelon",
+    "2020_co2": 9.5,
+    "2021_co2": 10.51,
+    "abs_change": 1.01,
+    "perc_change": 11
+  },
+  {
+    "country": "Saint Vincent and the Grenadines",
+    "2020_co2": 1.85,
+    "2021_co2": 2.05,
+    "abs_change": 0.19,
+    "perc_change": 10
+  },
+  {
+    "country": "Samoa",
+    "2020_co2": 1.33,
+    "2021_co2": 1.34,
+    "abs_change": 0.01,
+    "perc_change": 1
+  },
+  {
+    "country": "Sao Tome and Principe",
+    "2020_co2": 0.57,
+    "2021_co2": 0.59,
+    "abs_change": 0.02,
+    "perc_change": 4
+  },
+  {
+    "country": "Saudi Arabia",
+    "2020_co2": 18.37,
+    "2021_co2": 18.7,
+    "abs_change": 0.34,
+    "perc_change": 2
+  },
+  {
+    "country": "Senegal",
+    "2020_co2": 0.78,
+    "2021_co2": 0.81,
+    "abs_change": 0.03,
+    "perc_change": 4
+  },
+  {
+    "country": "Serbia",
+    "2020_co2": 6.05,
+    "2021_co2": 4.23,
+    "abs_change": -1.82,
+    "perc_change": -30
+  },
+  {
+    "country": "Seychelles",
+    "2020_co2": 5.1,
+    "2021_co2": 5.34,
+    "abs_change": 0.24,
+    "perc_change": 5
+  },
+  {
+    "country": "Sierra Leone",
+    "2020_co2": 0.15,
+    "2021_co2": 0.15,
+    "abs_change": 0.01,
+    "perc_change": 4
+  },
+  {
+    "country": "Singapore",
+    "2020_co2": 5.06,
+    "2021_co2": 5.47,
+    "abs_change": 0.41,
+    "perc_change": 8
+  },
+  {
+    "country": "Sint Maarten (Dutch part)",
+    "2020_co2": 13.48,
+    "2021_co2": 14.7,
+    "abs_change": 1.23,
+    "perc_change": 9
+  },
+  {
+    "country": "Slovakia",
+    "2020_co2": 5.7,
+    "2021_co2": 6.48,
+    "abs_change": 0.78,
+    "perc_change": 14
+  },
+  {
+    "country": "Slovenia",
+    "2020_co2": 6.08,
+    "2021_co2": 5.92,
+    "abs_change": -0.15,
+    "perc_change": -3
+  },
+  {
+    "country": "Solomon Islands",
+    "2020_co2": 0.45,
+    "2021_co2": 0.45,
+    "abs_change": 0,
+    "perc_change": 0
+  },
+  {
+    "country": "Somalia",
+    "2020_co2": 0.03,
+    "2021_co2": 0.04,
+    "abs_change": 0,
+    "perc_change": 2
+  },
+  {
+    "country": "South Africa",
+    "2020_co2": 7.41,
+    "2021_co2": 7.34,
+    "abs_change": -0.07,
+    "perc_change": -1
+  },
+  {
+    "country": "South America",
+    "2020_co2": 2.27,
+    "2021_co2": 2.48,
+    "abs_change": 0.2,
+    "perc_change": 9
+  },
+  {
+    "country": "South Korea",
+    "2020_co2": 11.53,
+    "2021_co2": 11.89,
+    "abs_change": 0.36,
+    "perc_change": 3
+  },
+  {
+    "country": "South Sudan",
+    "2020_co2": 0.14,
+    "2021_co2": 0.15,
+    "abs_change": 0.01,
+    "perc_change": 4
+  },
+  {
+    "country": "Spain",
+    "2020_co2": 4.5,
+    "2021_co2": 4.92,
+    "abs_change": 0.42,
+    "perc_change": 9
+  },
+  {
+    "country": "Sri Lanka",
+    "2020_co2": 1,
+    "2021_co2": 0.95,
+    "abs_change": -0.05,
+    "perc_change": -5
+  },
+  {
+    "country": "Sudan",
+    "2020_co2": 0.45,
+    "2021_co2": 0.46,
+    "abs_change": 0.01,
+    "perc_change": 2
+  },
+  {
+    "country": "Suriname",
+    "2020_co2": 4.3,
+    "2021_co2": 4.56,
+    "abs_change": 0.26,
+    "perc_change": 6
+  },
+  {
+    "country": "Sweden",
+    "2020_co2": 3.52,
+    "2021_co2": 3.42,
+    "abs_change": -0.1,
+    "perc_change": -3
+  },
+  {
+    "country": "Switzerland",
+    "2020_co2": 3.96,
+    "2021_co2": 4.02,
+    "abs_change": 0.06,
+    "perc_change": 1
+  },
+  {
+    "country": "Syria",
+    "2020_co2": 1.26,
+    "2021_co2": 1.27,
+    "abs_change": 0.01,
+    "perc_change": 1
+  },
+  {
+    "country": "Taiwan",
+    "2020_co2": 11.09,
+    "2021_co2": 11.85,
+    "abs_change": 0.76,
+    "perc_change": 7
+  },
+  {
+    "country": "Tajikistan",
+    "2020_co2": 0.99,
+    "2021_co2": 1.06,
+    "abs_change": 0.07,
+    "perc_change": 7
+  },
+  {
+    "country": "Tanzania",
+    "2020_co2": 0.2,
+    "2021_co2": 0.21,
+    "abs_change": 0.01,
+    "perc_change": 3
+  },
+  {
+    "country": "Thailand",
+    "2020_co2": 3.88,
+    "2021_co2": 3.89,
+    "abs_change": 0.01,
+    "perc_change": 0
+  },
+  {
+    "country": "Timor",
+    "2020_co2": 0.55,
+    "2021_co2": 0.56,
+    "abs_change": 0,
+    "perc_change": 1
+  },
+  {
+    "country": "Togo",
+    "2020_co2": 0.27,
+    "2021_co2": 0.27,
+    "abs_change": 0.01,
+    "perc_change": 2
+  },
+  {
+    "country": "Tonga",
+    "2020_co2": 1.62,
+    "2021_co2": 1.65,
+    "abs_change": 0.03,
+    "perc_change": 2
+  },
+  {
+    "country": "Trinidad and Tobago",
+    "2020_co2": 23.55,
+    "2021_co2": 23.68,
+    "abs_change": 0.12,
+    "perc_change": 1
+  },
+  {
+    "country": "Tunisia",
+    "2020_co2": 2.27,
+    "2021_co2": 2.58,
+    "abs_change": 0.31,
+    "perc_change": 14
+  },
+  {
+    "country": "Turkey",
+    "2020_co2": 4.91,
+    "2021_co2": 5.26,
+    "abs_change": 0.35,
+    "perc_change": 7
+  },
+  {
+    "country": "Turkmenistan",
+    "2020_co2": 11.52,
+    "2021_co2": 13.09,
+    "abs_change": 1.56,
+    "perc_change": 14
+  },
+  {
+    "country": "Turks and Caicos Islands",
+    "2020_co2": 6.99,
+    "2021_co2": 7.56,
+    "abs_change": 0.57,
+    "perc_change": 8
+  },
+  {
+    "country": "Tuvalu",
+    "2020_co2": 0.7,
+    "2021_co2": 0.71,
+    "abs_change": 0.01,
+    "perc_change": 1
+  },
+  {
+    "country": "Uganda",
+    "2020_co2": 0.12,
+    "2021_co2": 0.13,
+    "abs_change": 0,
+    "perc_change": 2
+  },
+  {
+    "country": "Ukraine",
+    "2020_co2": 4.71,
+    "2021_co2": 4.64,
+    "abs_change": -0.08,
+    "perc_change": -2
+  },
+  {
+    "country": "United Arab Emirates",
+    "2020_co2": 21.44,
+    "2021_co2": 21.79,
+    "abs_change": 0.36,
+    "perc_change": 2
+  },
+  {
+    "country": "United Kingdom",
+    "2020_co2": 4.87,
+    "2021_co2": 5.15,
+    "abs_change": 0.29,
+    "perc_change": 6
+  },
+  {
+    "country": "United States",
+    "2020_co2": 14.04,
+    "2021_co2": 14.86,
+    "abs_change": 0.82,
+    "perc_change": 6
+  },
+  {
+    "country": "Upper-middle-income countries",
+    "2020_co2": 6.38,
+    "2021_co2": 6.69,
+    "abs_change": 0.3,
+    "perc_change": 5
+  },
+  {
+    "country": "Uruguay",
+    "2020_co2": 1.84,
+    "2021_co2": 1.97,
+    "abs_change": 0.13,
+    "perc_change": 7
+  },
+  {
+    "country": "Uzbekistan",
+    "2020_co2": 3.53,
+    "2021_co2": 3.57,
+    "abs_change": 0.04,
+    "perc_change": 1
+  },
+  {
+    "country": "Vanuatu",
+    "2020_co2": 0.55,
+    "2021_co2": 0.55,
+    "abs_change": 0,
+    "perc_change": 0
+  },
+  {
+    "country": "Venezuela",
+    "2020_co2": 2.68,
+    "2021_co2": 2.83,
+    "abs_change": 0.14,
+    "perc_change": 5
+  },
+  {
+    "country": "Vietnam",
+    "2020_co2": 3.4,
+    "2021_co2": 3.34,
+    "abs_change": -0.06,
+    "perc_change": -2
+  },
+  {
+    "country": "Wallis and Futuna",
+    "2020_co2": 2.32,
+    "2021_co2": 2.39,
+    "abs_change": 0.07,
+    "perc_change": 3
+  },
+  {
+    "country": "World",
+    "2020_co2": 4.5,
+    "2021_co2": 4.69,
+    "abs_change": 0.2,
+    "perc_change": 4
+  },
+  {
+    "country": "Yemen",
+    "2020_co2": 0.38,
+    "2021_co2": 0.38,
+    "abs_change": 0,
+    "perc_change": 1
+  },
+  {
+    "country": "Zambia",
+    "2020_co2": 0.38,
+    "2021_co2": 0.39,
+    "abs_change": 0.01,
+    "perc_change": 2
+  },
+  {
+    "country": "Zimbabwe",
+    "2020_co2": 0.68,
+    "2021_co2": 0.71,
+    "abs_change": 0.03,
+    "perc_change": 4
+  }
+ ]
