@@ -2,7 +2,8 @@
 
     import { onMount } from "svelte";
     import {darkMode, loading} from "$lib/stores.js"
-    import Switch from '@smui/switch';
+    import Title from "$lib/components/title.svelte";
+    import Footer from "$lib/components/footer.svelte";
 
     let darkStyles
     let lightStyles
@@ -25,19 +26,13 @@
         lightStyles.rel = 'stylesheet'
         loading.set(false)
     })
-
-    $: if ($darkMode === true && $loading === false) {
-        document.getElementById('light-mode')?.remove()
-        document.getElementsByTagName('head')[0].append(darkStyles)
-    } else if($darkMode === false && $loading === false) {
-        document.getElementById('dark-mode')?.remove()
-        document.getElementsByTagName('head')[0].append(lightStyles)
-    }
-
 </script>
 
-<Switch bind:checked={$darkMode} color="secondary" icons={false} id="dark-mode-toggle"/>
-<slot />
+<div class="layout">
+    <Title darkStyles={darkStyles} lightStyles={lightStyles}/>
+    <slot />
+    <Footer />
+</div>
 
 
 <style>
@@ -47,5 +42,9 @@
     :root {
         --white: #fff
     }
-
+    .layout {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
 </style>
