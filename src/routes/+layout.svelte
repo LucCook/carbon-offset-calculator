@@ -4,6 +4,7 @@
     import {darkMode, loading} from "$lib/stores.js"
     import Title from "$lib/components/title.svelte";
     import Footer from "$lib/components/footer.svelte";
+    import Nav from "$lib/components/nav.svelte";
 
     let darkStyles
     let lightStyles
@@ -30,6 +31,7 @@
 
 <div class="layout">
     <Title darkStyles={darkStyles} lightStyles={lightStyles}/>
+    <Nav />
     <slot />
     <Footer />
 </div>
