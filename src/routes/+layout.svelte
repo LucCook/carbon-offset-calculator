@@ -1,7 +1,8 @@
 <script>
 
     import { onMount } from "svelte";
-    import {darkMode, loading} from "$lib/stores.js"
+    import { darkMode, loading, userData } from "$lib/stores.js"
+    import { config } from "$lib/config";
     import Title from "$lib/components/title.svelte";
     import Footer from "$lib/components/footer.svelte";
     import Nav from "$lib/components/nav.svelte";
@@ -25,6 +26,7 @@
         lightStyles.href='/smui.css'
         lightStyles.type = 'text/css'
         lightStyles.rel = 'stylesheet'
+        
         loading.set(false)
     })
 </script>

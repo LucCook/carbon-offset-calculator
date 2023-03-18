@@ -1,64 +1,34 @@
 <script>
+    import { onMount } from "svelte"
   import { Row, Cell } from "@smui/data-table";
   import IconButton from "@smui/icon-button";
-  import { currentYear, userTrees } from "$lib/stores.js";
-
+  import Chip, { Set, LeadingIcon, TrailingIcon, Text } from "@smui/chips";
+  import { currentYear, userData } from "$lib/stores.js";
+  import {recalculateYear, costMonth, carbonOffsetMonth} from "$lib/utils.js"
+  import { update as _update, get as _get, set as _set } from "lodash";
   export let month;
   export let treesRemaining;
+
+  $: path = `${$currentYear}[${month}]`;
+
+  $: trees = _get($userData, `${path}.trees`, 0);
+
+  onMount(() => {
+    handleTreeChange()
+  })
 
   function capitaliseSingleWord(string) {
     return `${string[0].toUpperCase()}${string.slice(1)}`;
   }
+  
+  const handleTreeChange = () => {
+    _set($userData, `${path}`, {
+        trees
+    })
+    recalculateYear(userData, $userData, $currentYear)
+    $userData = {...$userData};
+}
 
-  $: carbonOffsetNewTrees = (calcMonth) => {
-    if ($userTrees[$currentYear]) {
-      const numberOfTrees = $userTrees[$currentYear][calcMonth];
-      if (numberOfTrees) {
-        return (
-          Math.round(numberOfTrees * (1 / 60) * (1 / 12) * 28.5 * 100) / 100
-        );
-      } else {
-        return 0;
-      }
-    } else {
-      return 0;
-    }
-  };
-
-  $: carbonOffsetOldTrees = (calcMonth, calcYear) => {
-    let totalCarbon = 0;
-    for (let year in $userTrees) {
-      if (year <= calcYear) {
-        console.log(year);
-        for (let month in $userTrees[year]) {
-          const yearsDiff = calcYear - year;
-          const monthsDiff =
-            new Date(`1 ${calcMonth} 1990`).getMonth() -
-            new Date(`1 ${month} 1990`).getMonth();
-          const totalMonthDiff = yearsDiff * 12 + monthsDiff;
-          if (totalMonthDiff > 0 && totalMonthDiff < 60) {
-            totalCarbon +=
-              $userTrees[year][month] *
-              ((totalMonthDiff + 1) / 60) *
-              (1 / 12) *
-              28.5;
-          } else if (totalMonthDiff >= 60) {
-            totalCarbon += $userTrees[year][month] * (1 / 12) * 28.5;
-          }
-          console.log(calcMonth + " " + month + " " + totalMonthDiff);
-        }
-      }
-    }
-    return Math.round(totalCarbon * 100) / 100;
-  };
-
-  $: monthlyTrees = (monthToRetrieve) => {
-    if ($userTrees[$currentYear] && $userTrees[$currentYear][monthToRetrieve]) {
-      return $userTrees[$currentYear][monthToRetrieve];
-    } else {
-      return 0;
-    }
-  };
 </script>
 
 <Row>
@@ -70,44 +40,64 @@
       <IconButton
         class="material-icons"
         on:click={() => {
-          if (monthlyTrees(month) > 0) {
-            $userTrees[$currentYear][month] -= 1;
+          if (trees > 4) {
+            trees -= 5;
+            handleTreeChange()
+          } else if (trees > 0) {
+            trees = 0;
+            handleTreeChange()
+          }
+        }}
+        size="button"><div class="icon-text">- 5</div></IconButton
+      >
+      <IconButton
+        class="material-icons"
+        on:click={() => {
+          if (trees > 0) {
+            trees -= 1;
+            handleTreeChange()
           }
         }}
         size="button">remove</IconButton
       >
+
       <div>
-        {monthlyTrees(month)}
+        {trees}
       </div>
       <IconButton
         class="material-icons"
         on:click={() => {
           if (treesRemaining > 0) {
-            if ($userTrees[$currentYear]) {
-              if ($userTrees[$currentYear][month]) {
-                $userTrees[$currentYear][month] += 1;
-              } else {
-                $userTrees[$currentYear][month] = 1;
-              }
-            } else {
-              $userTrees[$currentYear] = {};
-              $userTrees[$currentYear][month] = 1;
-            }
-            userTrees.set($userTrees);
+            trees += 1
+            handleTreeChange()
           }
         }}
         size="button">add</IconButton
       >
+      <IconButton
+        class="material-icons"
+        on:click={() => {
+          if (treesRemaining > 5) {
+            trees += 5
+            handleTreeChange()
+          } else if (treesRemaining > 0) {
+            trees += treesRemaining
+            handleTreeChange()
+          }
+        }}
+        size="button"><div class="icon-text">+ 5</div></IconButton
+      >
     </div>
   </Cell>
-  <Cell style="width: 25%;">
+  <Cell>
     <div class="cell">
-      {Math.round(
-        (carbonOffsetNewTrees(month) +
-          carbonOffsetOldTrees(month, $currentYear)) *
-          100
-      ) / 100}
+      {Math.round(carbonOffsetMonth($userData, month, $currentYear, trees) * 100) / 100}
       Kg
+    </div>
+  </Cell>
+  <Cell>
+    <div class="cell">
+      ${costMonth($userData, month, $currentYear, trees)}
     </div>
   </Cell>
 </Row>
@@ -122,5 +112,13 @@
     display: flex;
     width: 100%;
     justify-content: center;
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-text {
+    font-size: 0.8em;
   }
 </style>

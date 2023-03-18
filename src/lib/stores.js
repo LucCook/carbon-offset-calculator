@@ -1,5 +1,7 @@
 import { writable } from "svelte/store";
 
+import { carbonOffsetMonth, costMonth } from "$lib/utils";
+
 export const darkMode = writable(false);
 
 export const loading = writable(true);
@@ -12,23 +14,17 @@ export const userCountry = writable({
   perc_change: 0,
 });
 
-export const userOffset = writable(0);
+export const userOffset = writable(0)
 
-export const userTrees = writable({
-  2023: {
-    january: 0,
-    february: 0,
-    march: 0,
-    april: 0,
-    may: 0,
-    june: 5,
-    july: 6,
-    august: 0,
-    september: 0,
-    october: 0,
-    november: 0,
-    december: 0,
-  },
-});
+export const userData = writable({
+  
+})
+
+let userDataObj
+userData.subscribe((data) => {
+  userDataObj = data
+})
+
+
 
 export const currentYear = writable(new Date().getFullYear())

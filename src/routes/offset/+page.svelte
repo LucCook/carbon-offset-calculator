@@ -1,5 +1,5 @@
 <script>
-  import { userTrees, userCountry, currentYear } from "$lib/stores.js";
+  import { userCountry, currentYear, userData } from "$lib/stores.js";
   import { config } from "$lib/config.js";
   import Dialog, { Title, Content } from "@smui/dialog";
   import Button, { Label } from "@smui/button";
@@ -7,10 +7,10 @@
   import IconButton from "@smui/icon-button";
   import DataTable, { Head, Body, Row, Cell } from "@smui/data-table";
   import OffsetTableRow from "$lib/components/offsetTableRow.svelte";
+  import { recalculateYear, treeTotal, costTotal, offsetTotal } from "$lib/utils";
 
   let open = false;
-  let yearTreeTotal;
-
+  
   const months = [
     "january",
     "february",
@@ -26,24 +26,7 @@
     "december",
   ];
 
-  function capitaliseSingleWord(string) {
-    return `${string[0].toUpperCase()}${string.slice(1)}`;
-  }
-
-  function getNumberMonthsDiff(monthOne, yearOne, monthTwo, yearTwo) {
-    return (
-      new Date().getYear() - new Date(`1 ${monthOne} ${yearOne}`).getYear()
-    );
-  }
-
-  $: if ($userTrees[$currentYear]) {
-    yearTreeTotal = $userTrees[$currentYear]
-      ? Object.values($userTrees[$currentYear]).reduce((a, b) => a + b)
-      : 0;
-  } else yearTreeTotal = 0;
-
-  $: treesRemaining =
-    $config["yearly_tree_limit"] - (yearTreeTotal ? yearTreeTotal : 0);
+  $: treesRemaining = $config["yearly_tree_limit"] - treeTotal($userData, $currentYear);
 </script>
 
 <Dialog
@@ -69,17 +52,25 @@
   </Content>
 </Dialog>
 <div class="offset">
+  <button on:click={console.log($userData)}>click me!</button>
   <div class="year-selector">
     {#if $currentYear > new Date().getFullYear()}
-    <IconButton
-      on:click={() => currentYear.update((current) => (current -= 1))}
-      class="material-icons">remove</IconButton
-    >
+      <IconButton
+        on:click={() => {
+          currentYear.update((current) => (current -= 1))
+          recalculateYear(userData, $userData, $currentYear - 1)  
+        }}
+        class="material-icons">remove</IconButton
+      >
     {/if}
     <Button on:click={() => (open = true)}><Label>{$currentYear}</Label></Button
     >
     <IconButton
-      on:click={() => currentYear.update((current) => (current += 1))}
+      on:click={() => {
+        currentYear.update((current) => (current += 1))
+        console.log($currentYear)
+        recalculateYear(userData, $userData, $currentYear)  
+      }}
       class="material-icons">add</IconButton
     >
   </div>
@@ -88,11 +79,6 @@
     <Head>
       <Row>
         <Cell style="padding-inline: 0"><div class="header">Month</div></Cell>
-        <!-- <Cell style="padding-inline: 0"
-          ><div class="header">
-            Cumulative &nbsp;<span>CO<sub>2</sub></span>
-          </div></Cell
-        > -->
         <Cell style="padding-inline: 0"
           ><div class="header">Purchased Trees</div></Cell
         >
@@ -101,10 +87,19 @@
             <span>CO<sub>2</sub></span> &nbsp;Offset
           </div></Cell
         >
+        <Cell style="padding-inline: 0"
+          ><div class="header">Monthly Cost</div></Cell
+        >
       </Row>
       {#each months as month, i}
-        <OffsetTableRow month={month} i={i} treesRemaining={treesRemaining}/>
+        <OffsetTableRow {month} {i} {treesRemaining} />
       {/each}
+      <Row>
+        <Cell><div class="header">Total</div></Cell>
+        <Cell><div class="header">{treeTotal($userData, $currentYear)} Tree(s)</div></Cell>
+        <Cell><div class="header">{offsetTotal($userData, $currentYear)} Kg</div></Cell>
+        <Cell><div class="header">${costTotal($userData, $currentYear)}</div></Cell>
+      </Row>
     </Head>
   </DataTable>
 </div>
