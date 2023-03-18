@@ -37,7 +37,7 @@
 <style>
   .nav {
     margin-inline: 2px;
-    width: 100%;
+    
     overflow: hidden;
   }
 </style>
