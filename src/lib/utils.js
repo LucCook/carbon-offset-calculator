@@ -1,4 +1,10 @@
 import { update as _update, get as _get, set as _set } from "lodash";
+import { config } from "$lib/config";
+
+let options
+config.subscribe((config) => {
+    options = config
+})
 
 const months = [
     "january",
@@ -14,6 +20,8 @@ const months = [
     "november",
     "december",
   ];
+
+
 
 export const recalculateYear = (store, storeDataObj, year) => {
     for (const month of months) {

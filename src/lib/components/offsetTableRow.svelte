@@ -1,8 +1,9 @@
 <script>
-    import { onMount } from "svelte"
   import { Row, Cell } from "@smui/data-table";
   import IconButton from "@smui/icon-button";
   import Chip, { Set, LeadingIcon, TrailingIcon, Text } from "@smui/chips";
+  import Button, {Group, Label} from "@smui/button"
+  
   import { currentYear, userData } from "$lib/stores.js";
   import {recalculateYear, costMonth, carbonOffsetMonth} from "$lib/utils.js"
   import { update as _update, get as _get, set as _set } from "lodash";
@@ -13,10 +14,6 @@
 
   $: trees = _get($userData, `${path}.trees`, 0);
 
-  onMount(() => {
-    handleTreeChange()
-  })
-
   function capitaliseSingleWord(string) {
     return `${string[0].toUpperCase()}${string.slice(1)}`;
   }
@@ -26,7 +23,6 @@
         trees
     })
     recalculateYear(userData, $userData, $currentYear)
-    $userData = {...$userData};
 }
 
 </script>
@@ -37,7 +33,55 @@
   >
   <Cell style="padding-inline: 0; width: 50%;">
     <div class="tree-container">
-      <IconButton
+        
+
+        
+        <Button variant="outlined" mini on:click={() => {
+            if (trees > 4) {
+              trees -= 5;
+              handleTreeChange()
+            } else if (trees > 0) {
+              trees = 0;
+              handleTreeChange()
+            }
+          }}
+        >
+            <span class="bold">- 5</span>
+          </Button>
+          <Button variant="outlined" mini on:click={() => {
+            if (trees > 0) {
+              trees -= 1;
+              handleTreeChange()
+            }
+          }}>
+            <span class="bold">- 1</span>
+          </Button>
+          <Button variant="outlined" color={ trees ? "primary" : "secondary"} mini >
+            <span class="bold">{trees}</span>
+          </Button>
+          <Button variant="outlined"  mini on:click={() => {
+            if (treesRemaining > 0) {
+              trees += 1
+              handleTreeChange()
+            }
+          }}>
+            <span class="bold">+ 1</span>
+          </Button>
+          <Button variant="outlined"  mini on:click={() => {
+            if (treesRemaining > 5) {
+              trees += 5
+              handleTreeChange()
+            } else if (treesRemaining > 0) {
+              trees += treesRemaining
+              handleTreeChange()
+            }
+          }}>
+            <span class="bold">+ 5</span>
+          </Button>
+        
+            
+        
+      <!-- <IconButton
         class="material-icons"
         on:click={() => {
           if (trees > 4) {
@@ -86,18 +130,17 @@
           }
         }}
         size="button"><div class="icon-text">+ 5</div></IconButton
-      >
+      > -->
     </div>
   </Cell>
-  <Cell>
+  <Cell style="padding-inline: 0; width: 50%;">
     <div class="cell">
-      {Math.round(carbonOffsetMonth($userData, month, $currentYear, trees) * 100) / 100}
-      Kg
+        {Math.round(_get($userData, `${path}.offset`, 0) * 1000) / 1000} Kg
     </div>
   </Cell>
-  <Cell>
+  <Cell style="padding-inline: 0; width: 50%;">
     <div class="cell">
-      ${costMonth($userData, month, $currentYear, trees)}
+        ${_get($userData, `${path}.cost`, 0)}
     </div>
   </Cell>
 </Row>
@@ -106,7 +149,8 @@
   .tree-container {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width: 100%;
   }
   .cell {
     display: flex;
@@ -121,4 +165,9 @@
   .icon-text {
     font-size: 0.8em;
   }
+  .bold {
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+  
 </style>

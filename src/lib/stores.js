@@ -7,7 +7,7 @@ export const darkMode = writable(false);
 export const loading = writable(true);
 
 export const userCountry = writable({
-  country: "",
+  country: "World",
   "2020_co2": 0,
   "2021_co2": 0,
   abs_change: 0,

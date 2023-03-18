@@ -26,7 +26,7 @@
         lightStyles.href='/smui.css'
         lightStyles.type = 'text/css'
         lightStyles.rel = 'stylesheet'
-        
+
         loading.set(false)
     })
 </script>
@@ -51,4 +51,7 @@
         display: flex;
         flex-direction: column;
     }
+    :global(.mdc-button) {
+  min-width: 42px;
+}
 </style>

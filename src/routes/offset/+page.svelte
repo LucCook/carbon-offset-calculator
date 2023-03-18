@@ -68,7 +68,6 @@
     <IconButton
       on:click={() => {
         currentYear.update((current) => (current += 1))
-        console.log($currentYear)
         recalculateYear(userData, $userData, $currentYear)  
       }}
       class="material-icons">add</IconButton
