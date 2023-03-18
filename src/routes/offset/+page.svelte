@@ -5,18 +5,37 @@
   import Button, { Label } from "@smui/button";
   import List, { Item, Text } from "@smui/list";
   import IconButton from "@smui/icon-button";
-  import DataTable, { Head, Body, Row, Cell } from '@smui/data-table';
+  import DataTable, { Head, Body, Row, Cell } from "@smui/data-table";
+  import OffsetTableRow from "$lib/components/offsetTableRow.svelte";
 
   let open = false;
   let yearTreeTotal;
-  let treeObject
 
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const months = [
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+  ];
 
-  userTrees.subscribe((trees) => {
-    treeObject = trees
-  })
-  console.log(new Date("January 1, 2023"))
+  function capitaliseSingleWord(string) {
+    return `${string[0].toUpperCase()}${string.slice(1)}`;
+  }
+
+  function getNumberMonthsDiff(monthOne, yearOne, monthTwo, yearTwo) {
+    return (
+      new Date().getYear() - new Date(`1 ${monthOne} ${yearOne}`).getYear()
+    );
+  }
+
   $: if ($userTrees[$currentYear]) {
     yearTreeTotal = $userTrees[$currentYear]
       ? Object.values($userTrees[$currentYear]).reduce((a, b) => a + b)
@@ -36,7 +55,7 @@
   <Title id="list-title">Select Year</Title>
   <Content id="list-content">
     <List>
-      {#each [...Array(30)].map((_v, i) => 2035 - i) as item}
+      {#each [...Array(11)].map((_v, i) => new Date().getFullYear() + i) as item}
         <Item
           on:click={() => {
             currentYear.set(item);
@@ -51,10 +70,12 @@
 </Dialog>
 <div class="offset">
   <div class="year-selector">
+    {#if $currentYear > new Date().getFullYear()}
     <IconButton
       on:click={() => currentYear.update((current) => (current -= 1))}
       class="material-icons">remove</IconButton
     >
+    {/if}
     <Button on:click={() => (open = true)}><Label>{$currentYear}</Label></Button
     >
     <IconButton
@@ -67,51 +88,22 @@
     <Head>
       <Row>
         <Cell style="padding-inline: 0"><div class="header">Month</div></Cell>
-        <Cell style="padding-inline: 0"><div class="header" >Cumulative &nbsp;<span>CO<sub>2</sub></span> &nbsp;(tonnes)</div></Cell>
-        <Cell style="padding-inline: 0"><div class="header" >Purchased Trees</div></Cell>
-        <Cell style="padding-inline: 0"><div class="header" ><span>CO<sub>2</sub></span> &nbsp;Offset</div></Cell>
+        <!-- <Cell style="padding-inline: 0"
+          ><div class="header">
+            Cumulative &nbsp;<span>CO<sub>2</sub></span>
+          </div></Cell
+        > -->
+        <Cell style="padding-inline: 0"
+          ><div class="header">Purchased Trees</div></Cell
+        >
+        <Cell style="padding-inline: 0"
+          ><div class="header">
+            <span>CO<sub>2</sub></span> &nbsp;Offset
+          </div></Cell
+        >
       </Row>
       {#each months as month, i}
-      
-      <Row>
-        <Cell style="padding-inline: 0"><div class="cell">{month}</div></Cell>
-        <Cell style="padding-inline: 0"><div class="cell">
-          {Math.round(($userCountry["2021_co2"] / 12) * (i + 1) * 100) / 100}
-        </div>
-        </Cell>
-        <Cell style="padding-inline: 0">
-          <div class="tree-container">
-            <IconButton class="material-icons" on:click={() => {
-              if ($userTrees[$currentYear] && $userTrees[$currentYear][month.toLowerCase()] && $userTrees[$currentYear][month.toLowerCase()] > 0) {
-                treeObject[$currentYear][month.toLowerCase()] -= 1
-                userTrees.set(treeObject)
-              }
-            }}
-              size="button"
-              >remove</IconButton>
-            <div>
-              {$userTrees[$currentYear] && $userTrees[$currentYear][month.toLowerCase()] ? $userTrees[$currentYear][month.toLowerCase()] : 0}
-            </div>
-            <IconButton class="material-icons" on:click={() => {
-              if (treesRemaining > 0) {
-                if (treeObject[$currentYear]) {
-                  if (treeObject[$currentYear][month.toLowerCase()]) {
-                    treeObject[$currentYear][month.toLowerCase()] += 1
-                  } else {
-                    treeObject[$currentYear][month.toLowerCase()] = 1
-                  }
-                } else {
-                  treeObject[$currentYear] = {}
-                  treeObject[$currentYear][month.toLowerCase()] = 1
-                }
-                userTrees.set(treeObject)
-              }
-            }}
-            size="button"
-              >add</IconButton>
-          </div>
-        </Cell>
-      </Row>
+        <OffsetTableRow month={month} i={i} treesRemaining={treesRemaining}/>
       {/each}
     </Head>
   </DataTable>
@@ -127,21 +119,11 @@
     flex-direction: column;
     align-items: center;
   }
-  .tree-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
   .header {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     box-sizing: border-box;
     margin-inline: 5px;
-  }
-  .cell {
-    display: flex;
-    justify-content: center;
-
   }
 </style>
