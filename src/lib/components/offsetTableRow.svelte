@@ -1,11 +1,11 @@
 <script>
   import { Row, Cell } from "@smui/data-table";
-  import IconButton from "@smui/icon-button";
+ 
   import Chip, { Set, LeadingIcon, TrailingIcon, Text } from "@smui/chips";
   import Button, {Group, Label} from "@smui/button"
   
   import { currentYear, userData } from "$lib/stores.js";
-  import {recalculateYear, costMonth, carbonOffsetMonth} from "$lib/utils.js"
+  import {recalculateYear, capitaliseSingleWord} from "$lib/utils.js"
   import { update as _update, get as _get, set as _set } from "lodash";
   export let month;
   export let treesRemaining;
@@ -13,10 +13,6 @@
   $: path = `${$currentYear}[${month}]`;
 
   $: trees = _get($userData, `${path}.trees`, 0);
-
-  function capitaliseSingleWord(string) {
-    return `${string[0].toUpperCase()}${string.slice(1)}`;
-  }
   
   const handleTreeChange = () => {
     _set($userData, `${path}`, {
@@ -135,7 +131,7 @@
   </Cell>
   <Cell style="padding-inline: 0; width: 50%;">
     <div class="cell">
-        {Math.round(_get($userData, `${path}.offset`, 0) * 1000) / 1000} Kg
+        {Math.round(_get($userData, `${path}.offset`, 0) * 100) / 100} Kg
     </div>
   </Cell>
   <Cell style="padding-inline: 0; width: 50%;">

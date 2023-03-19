@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
-    "prepare": "npm run smui-theme-light && npm run smui-theme-dark",
+    "prepare": "npm run smui-theme-light && npm run smui-theme-dark && npm run dev",
     "smui-theme-light": "smui-theme compile static/smui.css -i src/theme",
     "smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/theme/dark"
   },
@@ -16,6 +16,7 @@
     "@smui-extra/autocomplete": "^7.0.0-beta.0",
     "@smui/button": "^7.0.0-beta.0",
     "@smui/chips": "^7.0.0-beta.0",
+    "@smui/circular-progress": "^7.0.0-beta.0",
     "@smui/data-table": "^7.0.0-beta.0",
     "@smui/dialog": "^7.0.0-beta.0",
     "@smui/fab": "^7.0.0-beta.0",

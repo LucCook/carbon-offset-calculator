@@ -17,6 +17,18 @@ $primary: #ff3e00;
   $error: color-palette.$red-900
 );
 
+@use '@material/circular-progress/index' as circular-progress;
+ 
+.my-colored-circle-complete {
+  @include circular-progress.color(theme.$green-500);
+  @include circular-progress.track-color(theme.$green-900);
+}
+
+.my-colored-circle {
+  @include circular-progress.color(#ff3e00);
+  @include circular-progress.track-color(#ffa689);
+}
+
 :root {
   --primary: #{$primary};
   --secondary: #{$secondary};

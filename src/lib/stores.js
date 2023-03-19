@@ -17,7 +17,10 @@ export const userCountry = writable({
 export const userOffset = writable(0)
 
 export const userData = writable({
-  
+  profile: {
+    country: "World",
+    footprint: 4690 
+  }
 })
 
 let userDataObj
@@ -28,3 +31,4 @@ userData.subscribe((data) => {
 
 
 export const currentYear = writable(new Date().getFullYear())
+export const currentMonth = writable(new Date().getMonth())
