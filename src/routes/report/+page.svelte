@@ -1,9 +1,13 @@
 <script>
   import { userData, currentMonth, currentYear } from "$lib/stores.js";
-  import {get as _get} from "lodash"
+  import { get as _get } from "lodash";
   import Fa from "svelte-fa/src/fa.svelte";
-  import { faMoneyBills } from "@fortawesome/free-solid-svg-icons";
-  import Tab, { Icon } from "@smui/tab";
+  import {
+    faMoneyBills,
+    faCaretLeft,
+    faCaretRight,
+  } from "@fortawesome/free-solid-svg-icons";
+  import { Icon } from "@smui/tab";
 
   import {
     months,
@@ -13,42 +17,50 @@
     growingTrees,
     grownTrees,
     treeTotal,
-    costTotal
+    costTotal,
   } from "$lib/utils.js";
   import Button, { Group, Label } from "@smui/button";
+  import IconButton from "@smui/icon-button";
   import Switch from "@smui/switch";
   import Dialog, { Title, Content } from "@smui/dialog";
   import List, { Item, Text } from "@smui/list";
   import CircularProgress from "@smui/circular-progress";
 
   import { capitaliseSingleWord } from "$lib/utils.js";
+  import { config } from "$lib/config";
 
   let yearReport = true;
   $: month = months[$currentMonth];
   let openYear = false;
   let openMonth = false;
 
-  $: newTreesMonth = _get($userData, `${$currentYear}[${month}].trees`, 0)
-  $: newTreesMonthCost = newTreesMonth * 120
+  $: newTreesMonth = _get($userData, `${$currentYear}[${month}].trees`, 0);
+  $: newTreesMonthCost = newTreesMonth * 120;
   $: growingTreesMonth = growingTrees($userData, month, $currentYear);
-  $: growingTreesMonthOffset = monthlyOffset - (grownTreesMonth * 28.5 * (1/12))
+  $: growingTreesMonthOffset =
+    monthlyOffset - grownTreesMonth * 28.5 * (1 / 12);
   $: grownTreesMonth = grownTrees($userData, month, $currentYear);
-  $: grownTreesMonthOffset = (grownTreesMonth * 28.5 * (1/12)).toFixed(2)
+  $: grownTreesMonthOffset = (grownTreesMonth * 28.5 * (1 / 12)).toFixed(2);
 
-  $: newTreesYear = treeTotal($userData, $currentYear)
-  $: newTreesYearCost = newTreesMonth * 120
+  $: newTreesYear = treeTotal($userData, $currentYear);
+  $: newTreesYearCost = newTreesMonth * 120;
   $: growingTreesYear = growingTrees($userData, "december", $currentYear);
-  $: growingTreesYearOffset = yearlyOffset - (grownTreesYear * 28.5)
+  $: growingTreesYearOffset = yearlyOffset - grownTreesYear * 28.5;
   $: grownTreesYear = grownTrees($userData, "december", $currentYear);
-  $: grownTreesYearOffset = (grownTreesYear * 28.5).toFixed(2)
+  $: grownTreesYearOffset = (grownTreesYear * 28.5).toFixed(2);
 
   $: yearlyFootprint = $userData.profile.footprint;
   $: yearlyOffset = offsetTotal($userData, $currentYear);
-  $: yearlyCost = costTotal($userData, $currentYear)
+  $: yearlyCost = costTotal($userData, $currentYear);
 
   $: monthlyFootprint = yearlyFootprint / 12;
-  $: monthlyOffset = carbonOffsetMonth($userData, month, $currentYear, newTreesMonth);
-  $: monthlyCost = _get($userData, `${$currentYear}[${month}].cost`, 0)
+  $: monthlyOffset = carbonOffsetMonth(
+    $userData,
+    month,
+    $currentYear,
+    newTreesMonth
+  );
+  $: monthlyCost = _get($userData, `${$currentYear}[${month}].cost`, 0);
 
   $: recalculateYear(userData, $userData, $currentYear);
 
@@ -61,60 +73,98 @@
       : percentageToNetZero;
 
   const animateNumber = async (displayNumber, sourceValue) => {
-    let displayRounded = Math.round(displayNumber * 10000) / 10000
-    const sourceRounded = Math.round(sourceValue * 10000) / 10000
-    return await new Promise(resolve => setTimeout(resolve, 10))
-    .then(() => {
+    let displayRounded = Math.round(displayNumber * 10000) / 10000;
+    const sourceRounded = Math.round(sourceValue * 10000) / 10000;
+    return await new Promise((resolve) => setTimeout(resolve, 10)).then(() => {
       if (displayRounded !== sourceRounded) {
-        displayRounded += (sourceRounded - displayRounded) / 10
+        displayRounded += (sourceRounded - displayRounded) / 10;
       }
-      return displayRounded
-    })
+      return displayRounded;
+    });
+  };
+
+  const handleNext = () => {
+    if (yearReport) {
+      currentYear.update((year) => year + 1);
+      recalculateYear(userData, $userData, $currentYear);
+    } else {
+      if ($currentMonth !== 11) {
+        currentMonth.update((month) => month + 1);
+      } else {
+        currentYear.update((year) => year + 1);
+        currentMonth.set(0);
+      }
+    }
+  };
+
+  const handlePrevious = () => {
+    if (yearReport) {
+      if ($currentYear > $config.min_year) currentYear.update((year) => year - 1);
+    } else {
+      if ($currentMonth !== 0) {
+        currentMonth.update((month) => month - 1);
+      } else if ($currentYear > $config.min_year) {
+        currentYear.update((year) => year - 1);
+        currentMonth.set(11);
+      }
+    }
   }
 
-  let offSetToDisplay = 0
-  $: animateNumber(offSetToDisplay, yearReport ? yearlyOffset : monthlyOffset)
-  .then((value) => {
-    offSetToDisplay = value
-  })
-  let footprintToDisplay = 0
-  $: animateNumber(footprintToDisplay, yearReport ? yearlyFootprint : monthlyFootprint)
-  .then((value) => {
-    footprintToDisplay = value
-  })
-  let growingTreesToDisplay = 0
-  $: animateNumber(growingTreesToDisplay, yearReport ? growingTreesYear : growingTreesMonth)
-  .then((value) => {
-    growingTreesToDisplay = value
-  })
-  let grownTreesToDisplay = 0
-  $: animateNumber(grownTreesToDisplay, yearReport ? grownTreesYear : grownTreesMonth)
-  .then((value) => {
-    grownTreesToDisplay = value
-  })
-  let growingTreesOffsetToDisplay = 0
-  $: animateNumber(growingTreesOffsetToDisplay, yearReport ? growingTreesYearOffset : growingTreesMonthOffset)
-  .then((value) => {
-    growingTreesOffsetToDisplay = value
-  })
-  let grownTreesOffsetToDisplay = 0
-  $: animateNumber(grownTreesOffsetToDisplay, yearReport ? grownTreesYearOffset : grownTreesMonthOffset)
-  .then((value) => {
-    grownTreesOffsetToDisplay = value
-  })
-  let costToDisplay = 0
-  $: animateNumber(costToDisplay, yearReport ? yearlyCost : monthlyCost)
-  .then((value) => {
-    costToDisplay = value
-  })
-  let newTreesToDisplay = 0
-  $: animateNumber(newTreesToDisplay, yearReport ? newTreesYear : newTreesMonth)
-  .then((value) => {
-    newTreesToDisplay = value
-  })
-  
-
-  
+  let offSetToDisplay = 0;
+  $: animateNumber(
+    offSetToDisplay,
+    yearReport ? yearlyOffset : monthlyOffset
+  ).then((value) => {
+    offSetToDisplay = value;
+  });
+  let footprintToDisplay = 0;
+  $: animateNumber(
+    footprintToDisplay,
+    yearReport ? yearlyFootprint : monthlyFootprint
+  ).then((value) => {
+    footprintToDisplay = value;
+  });
+  let growingTreesToDisplay = 0;
+  $: animateNumber(
+    growingTreesToDisplay,
+    yearReport ? growingTreesYear : growingTreesMonth
+  ).then((value) => {
+    growingTreesToDisplay = value;
+  });
+  let grownTreesToDisplay = 0;
+  $: animateNumber(
+    grownTreesToDisplay,
+    yearReport ? grownTreesYear : grownTreesMonth
+  ).then((value) => {
+    grownTreesToDisplay = value;
+  });
+  let growingTreesOffsetToDisplay = 0;
+  $: animateNumber(
+    growingTreesOffsetToDisplay,
+    yearReport ? growingTreesYearOffset : growingTreesMonthOffset
+  ).then((value) => {
+    growingTreesOffsetToDisplay = value;
+  });
+  let grownTreesOffsetToDisplay = 0;
+  $: animateNumber(
+    grownTreesOffsetToDisplay,
+    yearReport ? grownTreesYearOffset : grownTreesMonthOffset
+  ).then((value) => {
+    grownTreesOffsetToDisplay = value;
+  });
+  let costToDisplay = 0;
+  $: animateNumber(costToDisplay, yearReport ? yearlyCost : monthlyCost).then(
+    (value) => {
+      costToDisplay = value;
+    }
+  );
+  let newTreesToDisplay = 0;
+  $: animateNumber(
+    newTreesToDisplay,
+    yearReport ? newTreesYear : newTreesMonth
+  ).then((value) => {
+    newTreesToDisplay = value;
+  });
 </script>
 
 <div class="report">
@@ -174,7 +224,10 @@
       />
       <div>Yearly</div>
     </label>
-    <Group style="margin-top: 30px">
+    <Group style="margin-top: 30px; display: flex; align-items: center;">
+      <IconButton class="material-icons" on:click={handlePrevious}
+        ><Fa icon={faCaretLeft} color={"var(--primary)"} /></IconButton
+      >
       {#if yearReport === false}
         <Button on:click={() => (openMonth = true)}
           ><Label>{month}</Label></Button
@@ -182,6 +235,9 @@
       {/if}
       <Button on:click={() => (openYear = true)}
         ><Label>{$currentYear}</Label></Button
+      >
+      <IconButton class="material-icons" on:click={handleNext}
+        ><Fa icon={faCaretRight} color={"var(--primary)"} /></IconButton
       >
     </Group>
   </div>
@@ -191,7 +247,8 @@
         >co2</Icon
       >
       <h2>
-        {offSetToDisplay.toFixed(2)} Kg of CO<sub>2</sub> offset, from a footprint of {footprintToDisplay.toFixed(0)}&nbsp;Kg
+        {offSetToDisplay.toFixed(2)} Kg of CO<sub>2</sub> offset, from a
+        footprint of {footprintToDisplay.toFixed(0)}&nbsp;Kg
       </h2>
     </div>
     <div class="item right">
@@ -209,35 +266,31 @@
       >
       <h2>
         {grownTreesToDisplay.toFixed(0)} Fully Grown Trees, offsetting
-        {grownTreesOffsetToDisplay.toFixed(2)}&nbsp;Kg of CO<sub
-          >2</sub
-        >
+        {grownTreesOffsetToDisplay.toFixed(2)}&nbsp;Kg of CO<sub>2</sub>
       </h2>
     </div>
     <div class="item right">
-        <h2>
-            ${costToDisplay.toFixed(0)} {yearReport ? 'yearly' : 'monthly'} cost, of which ${(newTreesToDisplay.toFixed(0) * 120)} is upfront purchases and ${costToDisplay.toFixed(0) - (newTreesToDisplay).toFixed(0) * 120} is maintenance expenses 
+      <h2>
+        ${costToDisplay.toFixed(0)}
+        {yearReport ? "yearly" : "monthly"} cost, of which ${newTreesToDisplay.toFixed(
+          0
+        ) * 120} is upfront purchases and ${costToDisplay.toFixed(0) -
+          newTreesToDisplay.toFixed(0) * 120} is maintenance expenses
+      </h2>
 
-            <!-- {#if yearReport}
-            ${yearlyCost + ' yearly'} cost, of which ${newTreesYear * 120} is upfront purchases and ${yearlyCost - newTreesYear * 120} is maintenance expenses
-            {:else}
-            ${monthlyCost + ' monthly'} cost, of which ${newTreesMonth * 120} is upfront purchases and ${monthlyCost - newTreesMonth * 120} is maintenance expenses
-            {/if} -->
-          
-        </h2>
-        
-        <Fa icon={faMoneyBills} size=2.5x style="margin-left: 25px;"/>
-      </div>
-    <div style="display: flex; justify-content: space-between;" class="progress-circle">
+      <Fa icon={faMoneyBills} size="2.5x" style="margin-left: 25px;" />
+    </div>
+    <div class="progress-circle">
       <CircularProgress
-        class={percentageToNetZero >= 1 ? "my-colored-circle-complete" : "my-colored-circle"}
+        class={percentageToNetZero >= 1
+          ? "my-colored-circle-complete"
+          : "my-colored-circle"}
         style="min-height: 80px; min-width: 80px;"
         progress={percentageCircle}
       />
-      <h2 style="margin-inline: 10px">
-        {Math.round(percentageToNetZero * 1000) / 10}% of CO<sub>2</sub> offset this {yearReport
-          ? "year"
-          : "month"}
+      <h2 class="label">
+        {(percentageToNetZero * 100).toFixed(2)}% of CO<sub>2</sub> offset
+        this {yearReport ? "year" : "month"}
       </h2>
     </div>
   </div>
@@ -250,7 +303,6 @@
     max-width: 600px;
     margin-inline: auto;
     justify-content: center;
-    align-items: flex-start;
     flex-direction: column;
   }
   .controls {
@@ -282,7 +334,12 @@
   }
   .progress-circle {
     max-width: 650px;
-    margin-inline: auto;
+    margin-inline: 20px;
     margin-top: 20px;
+    display: flex;
+  }
+  .label {
+    margin-inline: 10px;
+    padding-block: 10px;
   }
 </style>

@@ -1,6 +1,6 @@
 <script>
   import { Row, Cell } from "@smui/data-table";
-  import IconButton from "@smui/icon-button";
+ 
   import Chip, { Set, LeadingIcon, TrailingIcon, Text } from "@smui/chips";
   import Button, {Group, Label} from "@smui/button"
   
