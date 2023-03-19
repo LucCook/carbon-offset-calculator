@@ -6,7 +6,8 @@
   import List, { Item, Text } from "@smui/list";
   import IconButton from "@smui/icon-button";
   import Fa from "svelte-fa/src/fa.svelte";
-  import { update as _update, get as _get, set as _set } from "lodash";
+  import _ from "lodash";
+  const {update: _update, get: _get, set: _set} = _
   import {
     faRotate,
     faCaretLeft,
