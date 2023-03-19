@@ -20,8 +20,8 @@
   // Adjusts displayed value smoothly when selecting country
   $: if (valueToDisplay * 1000 !== calculatedCo2 * 1000) {
     setTimeout(() => {
-      valueToDisplay += (calculatedCo2 - valueToDisplay) / 50;
-    }, 5);
+      valueToDisplay += (calculatedCo2 - valueToDisplay) / 30;
+    }, 3);
   }
 
   $: if (countries.filter((obj) => obj.country === country)[0]) {

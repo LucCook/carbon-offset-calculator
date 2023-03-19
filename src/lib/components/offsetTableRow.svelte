@@ -5,7 +5,7 @@
   import Button, {Group, Label} from "@smui/button"
   
   import { currentYear, userData } from "$lib/stores.js";
-  import {recalculateYear, costMonth, carbonOffsetMonth} from "$lib/utils.js"
+  import {recalculateYear, capitaliseSingleWord} from "$lib/utils.js"
   import { update as _update, get as _get, set as _set } from "lodash";
   export let month;
   export let treesRemaining;
@@ -13,10 +13,6 @@
   $: path = `${$currentYear}[${month}]`;
 
   $: trees = _get($userData, `${path}.trees`, 0);
-
-  function capitaliseSingleWord(string) {
-    return `${string[0].toUpperCase()}${string.slice(1)}`;
-  }
   
   const handleTreeChange = () => {
     _set($userData, `${path}`, {

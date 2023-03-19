@@ -6,7 +6,7 @@ config.subscribe((config) => {
     options = config
 })
 
-const months = [
+export const months = [
     "january",
     "february",
     "march",
@@ -20,8 +20,6 @@ const months = [
     "november",
     "december",
   ];
-
-
 
 export const recalculateYear = (store, storeDataObj, year) => {
     for (const month of months) {
@@ -102,7 +100,6 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
 
   export const offsetTotal = (storeDataObj, year) => {
     let total = 0
-    
       for (let month in storeDataObj[year]) {
         total += storeDataObj[year][month].offset
       }
@@ -117,4 +114,8 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
       }
     
     return Math.round(total * 100) / 100
+  }
+
+  export const capitaliseSingleWord = (string) => {
+    return `${string[0].toUpperCase()}${string.slice(1)}`;
   }
