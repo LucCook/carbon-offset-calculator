@@ -36,6 +36,7 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "lodash": "^4.17.21",
-    "svelte-fa": "^3.0.3"
+    "svelte-fa": "^3.0.3",
+    "svelte-frappe-charts": "^1.10.0"
   }
 }

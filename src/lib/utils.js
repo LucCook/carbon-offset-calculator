@@ -138,6 +138,24 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
     return total
   }
 
+  export const treeMonthTotal = (storeDataObj, calcMonth, calcYear) => {
+    let total = 0
+    for (let year in storeDataObj)
+      if (year <= calcYear) {
+        for (let month in storeDataObj[year]) {
+          const yearsDiff = calcYear - year;
+          const monthsDiff =
+            new Date(`1 ${calcMonth} 1990`).getMonth() -
+            new Date(`1 ${month} 1990`).getMonth();
+          const totalMonthDiff = yearsDiff * 12 + monthsDiff;
+          if (totalMonthDiff >= 0) {
+            total += storeDataObj[year][month].trees
+          }   
+        }
+      }
+    return total
+  }
+
   export const offsetTotal = (storeDataObj, year) => {
     let total = 0
       for (let month in storeDataObj[year]) {

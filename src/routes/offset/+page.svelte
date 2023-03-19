@@ -1,30 +1,44 @@
 <script>
-  import { userCountry, currentYear, userData } from "$lib/stores.js";
+  import { currentYear, userData } from "$lib/stores.js";
   import { config } from "$lib/config.js";
   import Dialog, { Title, Content } from "@smui/dialog";
-  import Button, { Label } from "@smui/button";
+  import Button, { Group, Label } from "@smui/button";
   import List, { Item, Text } from "@smui/list";
   import IconButton from "@smui/icon-button";
+  import Fa from "svelte-fa/src/fa.svelte";
+  import { update as _update, get as _get, set as _set } from "lodash";
+  import {
+    faRotate,
+    faCaretLeft,
+    faCaretRight,
+  } from "@fortawesome/free-solid-svg-icons";
   import DataTable, { Head, Body, Row, Cell } from "@smui/data-table";
   import OffsetTableRow from "$lib/components/offsetTableRow.svelte";
-  import { recalculateYear, treeTotal, costTotal, offsetTotal } from "$lib/utils";
+  import { recalculateYear, treeTotal, costTotal, offsetTotal, months } from "$lib/utils";
 
   let open = false;
   
-  const months = [
-    "january",
-    "february",
-    "march",
-    "april",
-    "may",
-    "june",
-    "july",
-    "august",
-    "september",
-    "october",
-    "november",
-    "december",
-  ];
+  const handleReset = () => {
+    for (let month in $userData[$currentYear]) {
+      $userData[$currentYear][month].trees = 0
+    }
+    recalculateYear(userData, $userData, $currentYear)
+    $userData = $userData
+  }
+
+  const handleSpread = () => {
+    console.log($userData)
+    for (let month of months) {
+      _update($userData, `${$currentYear}[${month}].trees`, (n) => n ? n + Math.floor(treesRemaining / 12) : Math.floor(treesRemaining / 12)) 
+    }
+    console.log($userData[$currentYear])
+    console.log(treesRemaining % 12)
+    for (let i = 0; i < treesRemaining % 12; i++) {
+      _update($userData, `${$currentYear}[${months[i]}].trees`, (n) => n ? n + 1 : 1) 
+    }
+    recalculateYear(userData, $userData, $currentYear)
+    $userData = $userData
+  }
 
   $: treesRemaining = $config["yearly_tree_limit"] - treeTotal($userData, $currentYear);
 </script>
@@ -52,17 +66,18 @@
   </Content>
 </Dialog>
 <div class="offset">
-  <button on:click={console.log($userData)}>click me!</button>
   <div class="year-selector">
-    {#if $currentYear > new Date().getFullYear()}
+    
       <IconButton
+        disabled={$currentYear <= $config.min_year}
         on:click={() => {
           currentYear.update((current) => (current -= 1))
           recalculateYear(userData, $userData, $currentYear - 1)  
         }}
-        class="material-icons">remove</IconButton
+        
+        class="material-icons"><Fa icon={faCaretLeft} color={$currentYear <= $config.min_year ? "var(--secondary)" : "var(--primary)"}/></IconButton
       >
-    {/if}
+    
     <Button on:click={() => (open = true)}><Label>{$currentYear}</Label></Button
     >
     <IconButton
@@ -70,10 +85,23 @@
         currentYear.update((current) => (current += 1))
         recalculateYear(userData, $userData, $currentYear)  
       }}
-      class="material-icons">add</IconButton
+      class="material-icons"><Fa icon={faCaretRight} color={"var(--primary)"}/></IconButton
     >
   </div>
-  <div>Trees remaining: {treesRemaining}</div>
+  <Group>
+    <Button>
+      <Label>
+        <span class="bold">{treesRemaining}</span> Trees Remaining
+      </Label>
+    </Button>
+    <Button on:click={handleReset}>
+      <Label>Reset&nbsp;<Fa icon={faRotate}/></Label>
+    </Button>
+    <Button on:click={handleSpread}>
+      <Label>Spread Evenly</Label>
+    </Button>
+  </Group>
+  
   <DataTable style="min-width: 360px; width: 100%; max-width: 600px;">
     <Head>
       <Row>
@@ -107,11 +135,13 @@
   .year-selector {
     display: flex;
     align-items: center;
+    margin-block: 20px;
   }
   .offset {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
   .header {
     display: flex;
@@ -119,5 +149,9 @@
     flex-wrap: wrap;
     box-sizing: border-box;
     margin-inline: 5px;
+  }
+  .bold {
+    font-weight: bold;
+
   }
 </style>
