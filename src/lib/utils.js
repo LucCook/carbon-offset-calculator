@@ -39,6 +39,46 @@ export const recalculateYear = (store, storeDataObj, year) => {
     store.set(storeDataObj)
   }
 
+export const growingTrees = (dataObj, calcMonth, calcYear) => {
+  let totalTrees = 0
+  for (let year in dataObj) {
+    if (year <= calcYear) {
+      for (let month in dataObj[year]) {
+        const yearsDiff = calcYear - year;
+          const monthsDiff =
+            new Date(`1 ${calcMonth} 1990`).getMonth() -
+            new Date(`1 ${month} 1990`).getMonth();
+          const totalMonthDiff = yearsDiff * 12 + monthsDiff;
+          if (totalMonthDiff >= 0 && totalMonthDiff < 60) {
+            totalTrees +=
+              dataObj[year][month].trees
+          }
+      }
+    }
+  }
+  return totalTrees
+}
+
+export const grownTrees = (dataObj, calcMonth, calcYear) => {
+  let totalTrees = 0
+  for (let year in dataObj) {
+    if (year <= calcYear) {
+      for (let month in dataObj[year]) {
+        const yearsDiff = calcYear - year;
+          const monthsDiff =
+            new Date(`1 ${calcMonth} 1990`).getMonth() -
+            new Date(`1 ${month} 1990`).getMonth();
+          const totalMonthDiff = yearsDiff * 12 + monthsDiff;
+          if (totalMonthDiff >= 60) {
+            totalTrees +=
+              dataObj[year][month].trees
+          }
+      }
+    }
+  }
+  return totalTrees
+}
+
 export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
     let totalCarbon = 0;
     if (trees) {
