@@ -23,26 +23,32 @@
 
   import { capitaliseSingleWord } from "$lib/utils.js";
 
-  let yearReport = false;
+  let yearReport = true;
   $: month = months[$currentMonth];
   let openYear = false;
   let openMonth = false;
 
-  $: newTreesMonth = _get($userData, `${currentYear}[${month}].trees`, 0)
+  $: newTreesMonth = _get($userData, `${$currentYear}[${month}].trees`, 0)
+  $: newTreesMonthCost = newTreesMonth * 120
   $: growingTreesMonth = growingTrees($userData, month, $currentYear);
+  $: growingTreesMonthOffset = monthlyOffset - (grownTreesMonth * 28.5 * (1/12))
   $: grownTreesMonth = grownTrees($userData, month, $currentYear);
+  $: grownTreesMonthOffset = (grownTreesMonth * 28.5 * (1/12)).toFixed(2)
 
   $: newTreesYear = treeTotal($userData, $currentYear)
+  $: newTreesYearCost = newTreesMonth * 120
   $: growingTreesYear = growingTrees($userData, "december", $currentYear);
+  $: growingTreesYearOffset = yearlyOffset - (grownTreesYear * 28.5)
   $: grownTreesYear = grownTrees($userData, "december", $currentYear);
+  $: grownTreesYearOffset = (grownTreesYear * 28.5).toFixed(2)
 
   $: yearlyFootprint = $userData.profile.footprint;
   $: yearlyOffset = offsetTotal($userData, $currentYear);
   $: yearlyCost = costTotal($userData, $currentYear)
 
   $: monthlyFootprint = yearlyFootprint / 12;
-  $: monthlyOffset = carbonOffsetMonth($userData, month, $currentYear, 0);
-  $: monthlyCost = _get($userData, `${currentYear}[${month}].cost`, 0)
+  $: monthlyOffset = carbonOffsetMonth($userData, month, $currentYear, newTreesMonth);
+  $: monthlyCost = _get($userData, `${$currentYear}[${month}].cost`, 0)
 
   $: recalculateYear(userData, $userData, $currentYear);
 
@@ -53,6 +59,62 @@
     percentageToNetZero > 0
       ? percentageToNetZero - parseInt(percentageToNetZero)
       : percentageToNetZero;
+
+  const animateNumber = async (displayNumber, sourceValue) => {
+    let displayRounded = Math.round(displayNumber * 10000) / 10000
+    const sourceRounded = Math.round(sourceValue * 10000) / 10000
+    return await new Promise(resolve => setTimeout(resolve, 10))
+    .then(() => {
+      if (displayRounded !== sourceRounded) {
+        displayRounded += (sourceRounded - displayRounded) / 10
+      }
+      return displayRounded
+    })
+  }
+
+  let offSetToDisplay = 0
+  $: animateNumber(offSetToDisplay, yearReport ? yearlyOffset : monthlyOffset)
+  .then((value) => {
+    offSetToDisplay = value
+  })
+  let footprintToDisplay = 0
+  $: animateNumber(footprintToDisplay, yearReport ? yearlyFootprint : monthlyFootprint)
+  .then((value) => {
+    footprintToDisplay = value
+  })
+  let growingTreesToDisplay = 0
+  $: animateNumber(growingTreesToDisplay, yearReport ? growingTreesYear : growingTreesMonth)
+  .then((value) => {
+    growingTreesToDisplay = value
+  })
+  let grownTreesToDisplay = 0
+  $: animateNumber(grownTreesToDisplay, yearReport ? grownTreesYear : grownTreesMonth)
+  .then((value) => {
+    grownTreesToDisplay = value
+  })
+  let growingTreesOffsetToDisplay = 0
+  $: animateNumber(growingTreesOffsetToDisplay, yearReport ? growingTreesYearOffset : growingTreesMonthOffset)
+  .then((value) => {
+    growingTreesOffsetToDisplay = value
+  })
+  let grownTreesOffsetToDisplay = 0
+  $: animateNumber(grownTreesOffsetToDisplay, yearReport ? grownTreesYearOffset : grownTreesMonthOffset)
+  .then((value) => {
+    grownTreesOffsetToDisplay = value
+  })
+  let costToDisplay = 0
+  $: animateNumber(costToDisplay, yearReport ? yearlyCost : monthlyCost)
+  .then((value) => {
+    costToDisplay = value
+  })
+  let newTreesToDisplay = 0
+  $: animateNumber(newTreesToDisplay, yearReport ? newTreesYear : newTreesMonth)
+  .then((value) => {
+    newTreesToDisplay = value
+  })
+  
+
+  
 </script>
 
 <div class="report">
@@ -129,19 +191,13 @@
         >co2</Icon
       >
       <h2>
-        {Math.round(yearReport ? yearlyOffset * 100 : monthlyOffset * 100) /
-          100} Kg of CO<sub>2</sub> offset, from a footprint of {Math.round(
-          yearReport ? yearlyFootprint * 100 : monthlyFootprint * 100
-        ) / 100}&nbsp;Kg
+        {offSetToDisplay.toFixed(2)} Kg of CO<sub>2</sub> offset, from a footprint of {footprintToDisplay.toFixed(0)}&nbsp;Kg
       </h2>
     </div>
     <div class="item right">
       <h2>
-        {yearReport ? growingTreesYear : growingTreesMonth} Growing Trees, offsetting
-        {yearReport
-          ? Math.round(yearlyOffset * 100 - grownTreesYear * 28.5 * 100) / 100
-          : Math.round(monthlyOffset * 100 - grownTreesMonth * 28.5 * 100) /
-            100} Kg of CO<sub>2</sub>
+        {growingTreesToDisplay.toFixed(0)} Growing Trees, offsetting
+        {growingTreesOffsetToDisplay.toFixed(2)}&nbsp;Kg of CO<sub>2</sub>
       </h2>
       <Icon class="material-icons" style="margin-left: 25px; font-size: 3rem"
         >park</Icon
@@ -152,19 +208,21 @@
         >forest</Icon
       >
       <h2>
-        {yearReport ? grownTreesYear : grownTreesMonth} Fully Grown Trees, offsetting
-        {28.5 * yearReport ? grownTreesYear : grownTreesMonth} Kg of CO<sub
+        {grownTreesToDisplay.toFixed(0)} Fully Grown Trees, offsetting
+        {grownTreesOffsetToDisplay.toFixed(2)}&nbsp;Kg of CO<sub
           >2</sub
         >
       </h2>
     </div>
     <div class="item right">
         <h2>
-            {#if yearReport}
+            ${costToDisplay.toFixed(0)} {yearReport ? 'yearly' : 'monthly'} cost, of which ${(newTreesToDisplay.toFixed(0) * 120)} is upfront purchases and ${costToDisplay.toFixed(0) - (newTreesToDisplay).toFixed(0) * 120} is maintenance expenses 
+
+            <!-- {#if yearReport}
             ${yearlyCost + ' yearly'} cost, of which ${newTreesYear * 120} is upfront purchases and ${yearlyCost - newTreesYear * 120} is maintenance expenses
             {:else}
             ${monthlyCost + ' monthly'} cost, of which ${newTreesMonth * 120} is upfront purchases and ${monthlyCost - newTreesMonth * 120} is maintenance expenses
-            {/if}
+            {/if} -->
           
         </h2>
         
@@ -172,7 +230,7 @@
       </div>
     <div style="display: flex; justify-content: space-between;" class="progress-circle">
       <CircularProgress
-        class={percentageToNetZero >= 1 ? "my-colored-circle" : ""}
+        class={percentageToNetZero >= 1 ? "my-colored-circle-complete" : "my-colored-circle"}
         style="min-height: 80px; min-width: 80px;"
         progress={percentageCircle}
       />

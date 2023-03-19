@@ -131,7 +131,7 @@
   </Cell>
   <Cell style="padding-inline: 0; width: 50%;">
     <div class="cell">
-        {Math.round(_get($userData, `${path}.offset`, 0) * 1000) / 1000} Kg
+        {Math.round(_get($userData, `${path}.offset`, 0) * 100) / 100} Kg
     </div>
   </Cell>
   <Cell style="padding-inline: 0; width: 50%;">
