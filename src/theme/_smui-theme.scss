@@ -35,6 +35,7 @@ $primary: #ff3e00;
   --surface: #{$surface};
   --background: #{$background};
   --error: #{$error};
+  --opposite: #000;
 }
 
 
@@ -55,4 +56,12 @@ a:visited {
 .mdc-tab-scroller__scroll-area--scroll {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+.mdc-button .mdc-button__icon {
+  margin-right: 0;
+}
+[dir="rtl"] .mdc-button .mdc-button__icon,
+.mdc-button .mdc-button__icon[dir="rtl"] {
+  margin-left: 0;
+  margin-right: 0;
 }

@@ -37,6 +37,7 @@ $error: color-palette.$red-700;
   --background: #{$background};
   --error: #{$error};
   --light: #fa7a4f9d;
+  --opposite: #fff;
 }
 
 html,
@@ -56,4 +57,12 @@ a:visited {
 .mdc-tab-scroller__scroll-area--scroll {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+.mdc-button .mdc-button__icon {
+  margin-right: 0;
+}
+[dir="rtl"] .mdc-button .mdc-button__icon,
+.mdc-button .mdc-button__icon[dir="rtl"] {
+  margin-left: 0;
+  margin-right: 0;
 }

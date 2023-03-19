@@ -49,10 +49,10 @@
 {/if}
   <div>
     <h1>Your estimated carbon footprint</h1>
-    <h1>{Math.round(valueToDisplay * 1000)} Kg CO<sub>2</sub></h1>
-    <h1>{Math.round((valueToDisplay / 1.964) * 1000)}m<sup>3</sup></h1>
+    <h2>{Math.round(valueToDisplay * 1000)} Kg CO<sub>2</sub></h2>
+    <h2>{Math.round((valueToDisplay / 1.964) * 1000)}m<sup>3</sup></h2>
     <p>(Volume calculated for sea level @ 15 degrees celsius)</p>
-    <h1>{Math.ceil((valueToDisplay * 1000) / 28.5)} Fully Grown Trees</h1>
+    <h2>{Math.ceil((valueToDisplay * 1000) / 28.5)} Fully Grown Trees</h2>
   </div>
 </div>
 
@@ -69,4 +69,5 @@
   .switch-container {
     margin-top: 20px
   }
+  
 </style>

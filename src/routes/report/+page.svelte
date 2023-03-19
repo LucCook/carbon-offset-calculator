@@ -28,6 +28,7 @@
 
   import { capitaliseSingleWord } from "$lib/utils.js";
   import { config } from "$lib/config";
+  import FrappeCharts from "$lib/components/frappeCharts.svelte";
 
   let yearReport = true;
   $: month = months[$currentMonth];
@@ -226,7 +227,7 @@
     </label>
     <Group style="margin-top: 30px; display: flex; align-items: center;">
       <IconButton class="material-icons" on:click={handlePrevious}
-        ><Fa icon={faCaretLeft} color={"var(--primary)"} /></IconButton
+      disabled={yearReport ? $currentYear <= $config.min_year : $currentYear <= $config.min_year && month === months[0]}><Fa icon={faCaretLeft} color={$currentYear <= $config.min_year && (yearReport || month === months[0]) ? "var(--secondary)" : "var(--primary)"} /></IconButton
       >
       {#if yearReport === false}
         <Button on:click={() => (openMonth = true)}
@@ -294,6 +295,7 @@
       </h2>
     </div>
   </div>
+  <FrappeCharts />
 </div>
 
 <style>
