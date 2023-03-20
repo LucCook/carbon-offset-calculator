@@ -128,7 +128,7 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
         }
       }
     }
-    return totalMaintenance;
+    return parseFloat(totalMaintenance.toFixed(2));
   };
 
   export const treeTotal = (storeDataObj, year) => {

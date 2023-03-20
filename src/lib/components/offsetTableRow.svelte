@@ -88,7 +88,7 @@
   </Cell>
   <Cell style="padding-inline: 0; width: 25%;">
     <div class="cell">
-      ${_get($userData, `${path}.cost`, 0)}
+      ${_get($userData, `${path}.cost`, 0).toFixed(2)}
     </div>
   </Cell>
 </Row>
