@@ -28,12 +28,9 @@
   }
 
   const handleSpread = () => {
-    console.log($userData)
     for (let month of months) {
       _update($userData, `${$currentYear}[${month}].trees`, (n) => n ? n + Math.floor(treesRemaining / 12) : Math.floor(treesRemaining / 12)) 
     }
-    console.log($userData[$currentYear])
-    console.log(treesRemaining % 12)
     for (let i = 0; i < treesRemaining % 12; i++) {
       _update($userData, `${$currentYear}[${months[i]}].trees`, (n) => n ? n + 1 : 1) 
     }
@@ -120,7 +117,7 @@
         >
       </Row>
       {#each months as month, i}
-        <OffsetTableRow {month} {i} {treesRemaining} />
+        <OffsetTableRow {month} {treesRemaining} />
       {/each}
       <Row>
         <Cell><div class="header">Total</div></Cell>
