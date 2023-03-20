@@ -1,5 +1,5 @@
 <script>
-  import { darkMode, loading } from "$lib/stores.js";
+  import { darkMode, loading, currentYear, userData } from "$lib/stores.js";
   import Switch from "@smui/switch";
   import Fa from "svelte-fa/src/fa.svelte";
   import { faSun, faMoon, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
@@ -11,7 +11,7 @@
   import HelperText from '@smui/textfield/helper-text';
   import Button, { Label, Icon} from "@smui/button";
   import { config } from "$lib/config"
-  
+  import { recalculateYear } from "$lib/utils";
 
   // Listens for changes to darkMode and replaces unneeded style sheet with dark / light mode stylesheet
   $: if ($darkMode === true && $loading === false) {
@@ -30,9 +30,14 @@
   let yearly_tree_limit = $config.yearly_tree_limit
 
   const handleApply = () => {
+    tree_cost = parseFloat(tree_cost) || 120
+    maintenance_percent = parseFloat(maintenance_percent) || 10
+    tree_offset_max = parseFloat(tree_offset_max) || 28.5
+    tree_growth_months = parseInt(tree_growth_months) || 60
+    yearly_tree_limit = parseInt(yearly_tree_limit) || 55
     $config = {...$config, tree_cost, maintenance_percent, tree_offset_max, tree_growth_months, yearly_tree_limit}
+    recalculateYear(userData, $userData, $currentYear)
   }
-  console.log(isNaN("a123"))
 </script>
 
 <Dialog
@@ -46,7 +51,7 @@
       <HelperText style="margin-bottom: 10px" slot="helper">Upfront cost of purchasing a single tree (minimum $1)</HelperText>
     </Textfield>
     <Textfield bind:value={maintenance_percent} label="Maintenance cost percent" invalid={isNaN(maintenance_percent) || maintenance_percent < 0}>
-      <HelperText style="margin-bottom: 10px" slot="helper">Annual maintenance of a single tree as a percentage of upfront cost</HelperText>
+      <HelperText style="margin-bottom: 10px" slot="helper">Annual maintenance of a single tree as a percentage of upfront cost (minimum 1%)</HelperText>
       <Icon class="material-icons" slot="trailingIcon">%</Icon>
     </Textfield>
     <Textfield bind:value={tree_offset_max} label="Max Annual Tree CO2 Offset (Kg)" invalid={isNaN(tree_offset_max) || tree_offset_max <= 0}>
@@ -54,11 +59,11 @@
       <Icon class="material-icons" slot="trailingIcon">co2</Icon>
     </Textfield>
     <Textfield bind:value={tree_growth_months} label="Tree Growth Months" invalid={isNaN(tree_growth_months) || tree_growth_months < 1}>
-      <HelperText style="margin-bottom: 10px" slot="helper">Number of months for a tree to reach full growth</HelperText>
+      <HelperText style="margin-bottom: 10px" slot="helper">Number of months for a tree to reach full growth (minimum 1)</HelperText>
       <Icon class="material-icons" slot="trailingIcon"><Fa icon={faCalendarDays}/></Icon>
     </Textfield>
     <Textfield bind:value={yearly_tree_limit} label="Yearly Tree Purchase Limit" invalid={isNaN(yearly_tree_limit) || yearly_tree_limit < 1}>
-      <HelperText slot="helper">Maximum number of trees an individual can purchase per calendar year</HelperText>
+      <HelperText slot="helper">Maximum number of trees an individual can purchase per calendar year (minimum 1)</HelperText>
       <Icon class="material-icons" slot="trailingIcon">forest</Icon>
     </Textfield>
    
