@@ -70,3 +70,18 @@ The modelling done by the app uses the following assumptions
 - A tree takes 60 months to fully grow, and can offset 28.5kg of CO<sub>2</sub> per year when fully grown
 - The amount of CO<sub>2</sub> offset by a growing tree increases linearly until it is fully grown, increasing at a rate of ~1.7% per month
 - An individual is limited to 55 offset purchases per calendar year
+
+<br>
+
+## Potential of the app and future steps
+
+- **Transition to persistent database.** The user data in the app is modelled to mimic a noSQL document-style database, and so transitioning to a MongoDB database solution should be relatively simple to achieve.
+- **Further modelling variables.** The growth of a tree is currently being modelled linearly, with an increase per month of 1 / the total number of months required to achieve full growth. While this works fine for this example, it would be interesting to implement a quadratic (or more complex) formula to more closely model the real world growth of a tree
+- **Multi-year charts** - For a simplified UX, the chart on the report page only shows data for the currently selected year, future improvements could be made to allow the user to more finely tweak the data range, as well as adding further plots on the chart to show more data over time
+
+
+<br>
+
+## Data Source
+
+[**Our World In Data**](https://ourworldindata.org/grapher/co-emissions-per-capita?tab=table&time=2020..latest)
