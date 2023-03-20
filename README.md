@@ -62,7 +62,7 @@ Click the arrow buttons or displayed Month / Year to alter the period that the r
 
 <br>
 
-## Mathematical assumptions
+## Mathematical assumptions - Adjustable by pressing the 'Gear' icon at the top right of the app, next to the dark mode toggle
 
 The modelling done by the app uses the following assumptions
 
