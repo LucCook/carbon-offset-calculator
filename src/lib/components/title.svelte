@@ -43,18 +43,18 @@
   <Title id="list-title">Config</Title>
   <Content id="list-content">
     <Textfield bind:value={tree_cost} label="Tree Cost ($)" invalid={isNaN(tree_cost) || tree_cost < 0}>
-      <HelperText slot="helper">Upfront cost of purchasing a single tree (minimum $1)</HelperText>
+      <HelperText style="margin-bottom: 10px" slot="helper">Upfront cost of purchasing a single tree (minimum $1)</HelperText>
     </Textfield>
     <Textfield bind:value={maintenance_percent} label="Maintenance cost percent" invalid={isNaN(maintenance_percent) || maintenance_percent < 0}>
-      <HelperText slot="helper">Annual maintenance of a single tree as a percentage of upfront cost</HelperText>
+      <HelperText style="margin-bottom: 10px" slot="helper">Annual maintenance of a single tree as a percentage of upfront cost</HelperText>
       <Icon class="material-icons" slot="trailingIcon">%</Icon>
     </Textfield>
     <Textfield bind:value={tree_offset_max} label="Max Annual Tree CO2 Offset (Kg)" invalid={isNaN(tree_offset_max) || tree_offset_max <= 0}>
-      <HelperText slot="helper">Maximum amount of CO<sub>2</sub> offset by a tree in a single year</HelperText>
+      <HelperText style="margin-bottom: 10px" slot="helper">Maximum amount of CO<sub>2</sub> offset by a tree in a single year</HelperText>
       <Icon class="material-icons" slot="trailingIcon">co2</Icon>
     </Textfield>
     <Textfield bind:value={tree_growth_months} label="Tree Growth Months" invalid={isNaN(tree_growth_months) || tree_growth_months < 1}>
-      <HelperText slot="helper">Number of months for a tree to reach full growth</HelperText>
+      <HelperText style="margin-bottom: 10px" slot="helper">Number of months for a tree to reach full growth</HelperText>
       <Icon class="material-icons" slot="trailingIcon"><Fa icon={faCalendarDays}/></Icon>
     </Textfield>
     <Textfield bind:value={yearly_tree_limit} label="Yearly Tree Purchase Limit" invalid={isNaN(yearly_tree_limit) || yearly_tree_limit < 1}>
