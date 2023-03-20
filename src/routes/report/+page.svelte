@@ -1,6 +1,7 @@
 <script>
   import { userData, currentMonth, currentYear } from "$lib/stores.js";
-  import { get as _get } from "lodash";
+  import _ from "lodash";
+  const {get: _get} = _
   import Fa from "svelte-fa/src/fa.svelte";
   import {
     faMoneyBills,

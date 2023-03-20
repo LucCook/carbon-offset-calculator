@@ -6,7 +6,8 @@
   import IconButton from "@smui/icon-button";
   import { currentYear, userData } from "$lib/stores.js";
   import { recalculateYear, capitaliseSingleWord } from "$lib/utils.js";
-  import { update as _update, get as _get, set as _set } from "lodash";
+  import _ from "lodash";
+  const {update: _update, get: _get, set: _set} = _
   import Dialog, { Title, Content } from "@smui/dialog";
   import List, { Item, Text } from "@smui/list";
   export let month;
