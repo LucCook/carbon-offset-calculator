@@ -1,11 +1,12 @@
 <script>
 
     import { onMount } from "svelte";
-    import { darkMode, loading, userData } from "$lib/stores.js"
-    import { config } from "$lib/config";
+    import { darkMode, loading} from "$lib/stores.js"
+    
     import Title from "$lib/components/title.svelte";
     import Footer from "$lib/components/footer.svelte";
     import Nav from "$lib/components/nav.svelte";
+  import { goto } from "$app/navigation";
 
     let darkStyles
     let lightStyles
@@ -27,13 +28,16 @@
         lightStyles.type = 'text/css'
         lightStyles.rel = 'stylesheet'
         loading.set(false)
+        goto("/footprint")
     })
 </script>
 
 <div class="layout">
     <Title darkStyles={darkStyles} lightStyles={lightStyles}/>
     <Nav />
+    {#if !$loading}
     <slot />
+    {/if}
     <Footer />
 </div>
 
