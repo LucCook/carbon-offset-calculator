@@ -93,6 +93,7 @@
         currentMonth.update((month) => month + 1);
       } else {
         currentYear.update((year) => year + 1);
+        recalculateYear(userData, $userData, $currentYear)
         currentMonth.set(0);
       }
     }
@@ -272,11 +273,11 @@
     </div>
     <div class="item right">
       <h2>
-        ${costToDisplay.toFixed(0)}
-        {yearReport ? "yearly" : "monthly"} cost, of which ${newTreesToDisplay.toFixed(
-          0
-        ) * $config.tree_cost} is upfront purchases and ${costToDisplay.toFixed(0) -
-          newTreesToDisplay.toFixed(0) * $config.tree_cost} is maintenance expenses
+        ${costToDisplay.toFixed(2)}
+        {yearReport ? "yearly" : "monthly"} cost, of which ${(newTreesToDisplay.toFixed(
+          2
+        ) * $config.tree_cost).toFixed(2)} is upfront purchases and ${(costToDisplay.toFixed(2) -
+          newTreesToDisplay.toFixed(2) * $config.tree_cost).toFixed(2)} is maintenance expenses
       </h2>
 
       <Fa icon={faMoneyBills} size="2.5x" style="margin-left: 25px;" />
