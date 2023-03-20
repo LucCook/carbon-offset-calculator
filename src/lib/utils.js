@@ -50,7 +50,7 @@ export const growingTrees = (dataObj, calcMonth, calcYear) => {
             new Date(`1 ${calcMonth} 1990`).getMonth() -
             new Date(`1 ${month} 1990`).getMonth();
           const totalMonthDiff = yearsDiff * 12 + monthsDiff;
-          if (totalMonthDiff >= 0 && totalMonthDiff < 60) {
+          if (totalMonthDiff >= 0 && totalMonthDiff < options.tree_growth_months) {
             totalTrees +=
               dataObj[year][month].trees
           }
@@ -70,7 +70,7 @@ export const grownTrees = (dataObj, calcMonth, calcYear) => {
             new Date(`1 ${calcMonth} 1990`).getMonth() -
             new Date(`1 ${month} 1990`).getMonth();
           const totalMonthDiff = yearsDiff * 12 + monthsDiff;
-          if (totalMonthDiff >= 60) {
+          if (totalMonthDiff >= options.tree_growth_months) {
             totalTrees +=
               dataObj[year][month].trees
           }
@@ -84,7 +84,7 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
     let totalCarbon = 0;
     if (trees) {
         totalCarbon +=
-          Math.round(trees * (1 / 60) * (1 / 12) * 28.5 * 100) / 100;
+          Math.round(trees * (1 / options.tree_growth_months) * (1 / 12) * options.tree_offset_max * 100) / 100;
     }
     for (let year in dataObj) {
       if (year <= calcYear) {
@@ -94,14 +94,14 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
             new Date(`1 ${calcMonth} 1990`).getMonth() -
             new Date(`1 ${month} 1990`).getMonth();
           const totalMonthDiff = yearsDiff * 12 + monthsDiff;
-          if (totalMonthDiff > 0 && totalMonthDiff < 60) {
+          if (totalMonthDiff > 0 && totalMonthDiff < options.tree_growth_months) {
             totalCarbon +=
               dataObj[year][month].trees *
-              ((totalMonthDiff + 1) / 60) *
+              ((totalMonthDiff + 1) / options.tree_growth_months) *
               (1 / 12) *
-              28.5;
-          } else if (totalMonthDiff >= 60) {
-            totalCarbon += dataObj[year][month].trees * (1 / 12) * 28.5;
+              options.tree_offset_max;
+          } else if (totalMonthDiff >= options.tree_growth_months) {
+            totalCarbon += dataObj[year][month].trees * (1 / 12) * options.tree_offset_max;
           }
         }
       }
@@ -112,7 +112,7 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
   export const costMonth = (dataObj, calcMonth, calcYear, trees) => {
     let totalMaintenance = 0;
     
-    totalMaintenance += 120 * trees;
+    totalMaintenance += options.tree_cost * trees;
     
     for (let year in dataObj) {
       if (year <= calcYear) {
@@ -123,7 +123,7 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
             new Date(`1 ${month} 1990`).getMonth();
           const totalMonthDiff = yearsDiff * 12 + monthsDiff;
           if (totalMonthDiff > 0) {
-            totalMaintenance += dataObj[year][month].trees * 1;
+            totalMaintenance += dataObj[year][month].trees * options.tree_cost * (options.maintenance_percent / 100) ;
           }
         }
       }
@@ -160,7 +160,7 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
   export const grownTreesYearOffsetCalc = (storeDataObj, year) => {
     let totalOffset = 0
     for (const month in storeDataObj[year]) {
-      totalOffset += grownTrees(storeDataObj, month, year) * 28.5 * (1 / 12)
+      totalOffset += grownTrees(storeDataObj, month, year) * options.tree_offset_max * (1 / 12)
     }
     return totalOffset
   }

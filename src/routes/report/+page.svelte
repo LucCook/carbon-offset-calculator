@@ -39,9 +39,9 @@
   $: newTreesMonth = _get($userData, `${$currentYear}[${month}].trees`, 0);
   $: growingTreesMonth = growingTrees($userData, month, $currentYear);
   $: growingTreesMonthOffset =
-    monthlyOffset - grownTreesMonth * 28.5 * (1 / 12);
+    monthlyOffset - grownTreesMonth * $config.tree_offset_max * (1 / 12);
   $: grownTreesMonth = grownTrees($userData, month, $currentYear);
-  $: grownTreesMonthOffset = (grownTreesMonth * 28.5 * (1 / 12)).toFixed(2);
+  $: grownTreesMonthOffset = (grownTreesMonth * $config.tree_offset_max * (1 / 12)).toFixed(2);
 
   $: newTreesYear = treeTotal($userData, $currentYear);
   $: growingTreesYear = growingTrees($userData, "december", $currentYear);
@@ -274,8 +274,8 @@
         ${costToDisplay.toFixed(0)}
         {yearReport ? "yearly" : "monthly"} cost, of which ${newTreesToDisplay.toFixed(
           0
-        ) * 120} is upfront purchases and ${costToDisplay.toFixed(0) -
-          newTreesToDisplay.toFixed(0) * 120} is maintenance expenses
+        ) * $config.tree_cost} is upfront purchases and ${costToDisplay.toFixed(0) -
+          newTreesToDisplay.toFixed(0) * $config.tree_cost} is maintenance expenses
       </h2>
 
       <Fa icon={faMoneyBills} size="2.5x" style="margin-left: 25px;" />

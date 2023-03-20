@@ -66,14 +66,6 @@
         }}
         size="button"><Icon class="material-icons" style="margin-inline: 0">remove</Icon></Button
       >
-
-      <!-- <div
-        style={trees > 0
-          ? "color: var(--primary); padding: 10px; border-radius: 10px; height: 40px; width: 40px; text-align: center; box-sizing: border-box; font-weight: bold"
-          : "height: 40px; width: 40px; text-align: center;  box-sizing: border-box; padding: 10px;"}
-      >
-        {trees}
-      </div> -->
       <Button on:click={() => (open = true)}><Label style={trees ? 'color: var(--primary)' : 'color: var(--opposite)'}><p class="shadow">{trees}</p></Label></Button
         >
       <Button
@@ -111,15 +103,6 @@
     display: flex;
     width: 100%;
     justify-content: center;
-  }
-  .bold {
-    font-weight: bold;
-    font-size: 1.3em;
-  }
-  .icon {
-    display: flex;
-    justify-content: center;
-    margin-inline: auto;
   }
   .shadow {
     text-shadow: 0 0 5px var(--background);
