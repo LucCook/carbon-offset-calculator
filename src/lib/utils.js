@@ -123,7 +123,7 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
             new Date(`1 ${month} 1990`).getMonth();
           const totalMonthDiff = yearsDiff * 12 + monthsDiff;
           if (totalMonthDiff > 0) {
-            totalMaintenance += dataObj[year][month].trees * options.tree_cost * (options.maintenance_percent / 100) ;
+            totalMaintenance += dataObj[year][month].trees * options.tree_cost * (options.maintenance_percent / 100) * (1 / 12);
           }
         }
       }
