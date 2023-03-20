@@ -26,7 +26,6 @@
         lightStyles.href='/smui.css'
         lightStyles.type = 'text/css'
         lightStyles.rel = 'stylesheet'
-
         loading.set(false)
     })
 </script>

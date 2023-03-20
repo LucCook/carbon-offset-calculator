@@ -157,6 +157,14 @@ export const carbonOffsetMonth = (dataObj, calcMonth, calcYear, trees) => {
     return total
   }
 
+  export const grownTreesYearOffsetCalc = (storeDataObj, year) => {
+    let totalOffset = 0
+    for (const month in storeDataObj[year]) {
+      totalOffset += grownTrees(storeDataObj, month, year) * 28.5 * (1 / 12)
+    }
+    return totalOffset
+  }
+
   export const offsetTotal = (storeDataObj, year) => {
     let total = 0
       for (let month in storeDataObj[year]) {

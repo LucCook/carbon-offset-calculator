@@ -18,6 +18,7 @@
     grownTrees,
     treeTotal,
     costTotal,
+    grownTreesYearOffsetCalc
   } from "$lib/utils.js";
   import Button, { Group, Label } from "@smui/button";
   import IconButton from "@smui/icon-button";
@@ -36,7 +37,6 @@
   let openMonth = false;
 
   $: newTreesMonth = _get($userData, `${$currentYear}[${month}].trees`, 0);
-  $: newTreesMonthCost = newTreesMonth * 120;
   $: growingTreesMonth = growingTrees($userData, month, $currentYear);
   $: growingTreesMonthOffset =
     monthlyOffset - grownTreesMonth * 28.5 * (1 / 12);
@@ -44,11 +44,10 @@
   $: grownTreesMonthOffset = (grownTreesMonth * 28.5 * (1 / 12)).toFixed(2);
 
   $: newTreesYear = treeTotal($userData, $currentYear);
-  $: newTreesYearCost = newTreesMonth * 120;
   $: growingTreesYear = growingTrees($userData, "december", $currentYear);
-  $: growingTreesYearOffset = yearlyOffset - grownTreesYear * 28.5;
+  $: growingTreesYearOffset = (yearlyOffset - grownTreesYearOffset).toFixed(2);
   $: grownTreesYear = grownTrees($userData, "december", $currentYear);
-  $: grownTreesYearOffset = (grownTreesYear * 28.5).toFixed(2);
+  $: grownTreesYearOffset = (grownTreesYearOffsetCalc($userData, $currentYear)).toFixed(2);
 
   $: yearlyFootprint = $userData.profile.footprint;
   $: yearlyOffset = offsetTotal($userData, $currentYear);
